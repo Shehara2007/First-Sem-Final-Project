@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="616.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sciencelab.Controller.DashBordController">
+   <children>
+      <AnchorPane fx:id="ancDash" layoutX="1.0" prefHeight="485.0" prefWidth="227.0" style="-fx-background-color: #067e7f;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="lblScienceLab" alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="22.0" prefHeight="27.0" prefWidth="141.0" style="-fx-background-color: #c9fef4;" text="Scinence Lab" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Label>
+            <Button layoutX="60.0" layoutY="68.0" mnemonicParsing="false" onAction="#btnSupplierOnAction" style="-fx-background-color: #f5f6fa;" text="Suppier" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+            <Button layoutX="60.0" layoutY="108.0" mnemonicParsing="false" onAction="#btnChemicalOnAction" style="-fx-background-color: #f5f6fa;" text="Chemical" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+            <Button layoutX="60.0" layoutY="149.0" mnemonicParsing="false" onAction="#btnEquipmentOnAction" style="-fx-background-color: #f5f6fa;" text="Equipment" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+            <Button layoutX="60.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnProjectOnAction" style="-fx-background-color: #f5f6fa;" text="Project" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+            <Button layoutX="60.0" layoutY="230.0" mnemonicParsing="false" onAction="#btnProgressOnAction" style="-fx-background-color: #f5f6fa;" text="Progress" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+            <Button layoutX="60.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnScientistOnAction" style="-fx-background-color: #f5f6fa;" text="Scientist" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+            <Button layoutX="60.0" layoutY="312.0" mnemonicParsing="false" onAction="#btnGroupOnAction" style="-fx-background-color: #f5f6fa;" text="Group" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+            <Button layoutX="60.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" style="-fx-background-color: #f5f6fa;" text="Employee" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+            <Button layoutX="60.0" layoutY="394.0" mnemonicParsing="false" onAction="#btnFunderOnAction" style="-fx-background-color: #f5f6fa;" text="Funder" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
+            <ImageView fx:id="imgMain" fitHeight="150.0" fitWidth="200.0" layoutX="37.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Science%20lab%20logo.jpg" />
+               </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </ImageView>
+
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="ancPanel" layoutX="370.0" layoutY="165.0" prefHeight="485.0" prefWidth="407.0" style="-fx-background-color: #c9fef4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="231.66666666666669" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>
