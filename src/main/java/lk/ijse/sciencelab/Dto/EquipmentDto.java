@@ -1,6 +1,6 @@
 package lk.ijse.sciencelab.Dto;
 
-public class Equipment {
+public class EquipmentDto {
     private String equipmentId;
     private String equipmentName;
     private int quantity;

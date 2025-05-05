@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @ToString
 
-public class Scientist {
+public class ScientistDto {
     private String scientistId;
     private String contact;
     private String scientistName;

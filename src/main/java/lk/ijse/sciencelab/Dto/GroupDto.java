@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @ToString
 
-public class Group {
+public class GroupDto {
     private String groupId;
     private String groupName;
     private String progress;

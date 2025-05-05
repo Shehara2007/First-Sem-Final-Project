@@ -6,7 +6,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class Employee {
+public class EmployeeDto {
     private String employeeId;
     private String role;
     private String employeeName;

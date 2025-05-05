@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @ToString
 
-public class Project {
+public class ProjectDto {
     private String projectId;
     private String startDate;
     private String endDate;

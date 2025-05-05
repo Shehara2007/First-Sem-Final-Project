@@ -2,11 +2,15 @@ package lk.ijse.sciencelab.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class EmployeePageController {
 
+    public TextField txtName1;
+    public TableView tblEmployee;
+    public Label lblEmployeeID;
     @FXML
     private TableView<?> tblCustomer;
 

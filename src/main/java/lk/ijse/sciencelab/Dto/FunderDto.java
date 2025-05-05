@@ -1,7 +1,7 @@
 package lk.ijse.sciencelab.Dto;
 
 
-public class Funder {
+public class FunderDto {
     private String funderId;
     private String funderName;
     private double amount;

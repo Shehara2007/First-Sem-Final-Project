@@ -7,7 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class Chemical {
+public class ChemicalDto {
     private String chemicalId;
     private String chemicalName;
     private int quantity;

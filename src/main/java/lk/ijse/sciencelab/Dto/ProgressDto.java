@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @ToString
 
-public class Progress {
+public class ProgressDto {
     private String progressId;
     private String projectId;
     private String status;

@@ -10,63 +10,171 @@
 
 <AnchorPane prefHeight="616.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sciencelab.Controller.DashBordController">
    <children>
-      <AnchorPane fx:id="ancDash" layoutX="1.0" prefHeight="485.0" prefWidth="227.0" style="-fx-background-color: #067e7f;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="ancDash" prefHeight="485.0" prefWidth="227.0" style="-fx-background-color: #067e7f;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="lblScienceLab" alignment="CENTER" contentDisplay="CENTER" layoutX="28.0" layoutY="22.0" prefHeight="27.0" prefWidth="141.0" style="-fx-background-color: #c9fef4;" text="SM Scinence Lab " AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+            <Label fx:id="lblScienceLab" alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="15.0" prefHeight="27.0" prefWidth="167.0" style="-fx-background-color: #c9fef4;" text="SM Scinence Lab " underline="true" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                <font>
-                  <Font name="Webdings" size="17.0" />
+                  <Font name="Franklin Gothic Medium" size="17.0" />
                </font>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Label>
-            <Button layoutX="60.0" layoutY="68.0" mnemonicParsing="false" onAction="#btnSupplierOnAction" prefHeight="30.0" prefWidth="169.0" style="-fx-background-color: #f5f6fa;" text="Suppier" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+            <Button alignment="TOP_LEFT" layoutX="20.0" layoutY="60.0" mnemonicParsing="false" onAction="#btnSupplierOnAction" prefHeight="30.0" prefWidth="169.0" style="-fx-background-color: #f5f6fa;" text="   Suppier" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Button>
-            <Button layoutX="60.0" layoutY="108.0" mnemonicParsing="false" onAction="#btnChemicalOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="Chemical" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/icons8-buying-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button alignment="TOP_LEFT" layoutX="60.0" layoutY="100.0" mnemonicParsing="false" onAction="#btnChemicalOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="   Chemical" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/icons8-chemical-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button alignment="TOP_LEFT" layoutX="60.0" layoutY="140.0" mnemonicParsing="false" onAction="#btnEquipmentOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="   Equipment" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/icons8-microscope-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button alignment="TOP_LEFT" layoutX="60.0" layoutY="180.0" mnemonicParsing="false" onAction="#btnProjectOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="   Project" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/icons8-project-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button alignment="TOP_LEFT" layoutX="60.0" layoutY="221.0" mnemonicParsing="false" onAction="#btnProgressOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="    Progress" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                <font>
                   <Font name="System Bold" size="12.0" />
-               </font></Button>
-            <Button layoutX="60.0" layoutY="149.0" mnemonicParsing="false" onAction="#btnEquipmentOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="Equipment" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/icons8-file-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button alignment="TOP_LEFT" layoutX="10.0" layoutY="259.0" mnemonicParsing="false" onAction="#btnScientistOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="   Scientist" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Button>
-            <Button layoutX="60.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnProjectOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="Project" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/icons8-scientist-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button alignment="TOP_LEFT" layoutX="10.0" layoutY="301.0" mnemonicParsing="false" onAction="#btnGroupOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="   Group" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Button>
-            <Button layoutX="60.0" layoutY="230.0" mnemonicParsing="false" onAction="#btnProgressOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="Progress" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/icons8-group-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button alignment="TOP_LEFT" layoutX="10.0" layoutY="344.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="   Employee" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Button>
-            <Button layoutX="60.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnScientistOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="Scientist" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/icons8-name-tag-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button alignment="TOP_LEFT" layoutX="10.0" layoutY="388.0" mnemonicParsing="false" onAction="#btnFunderOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="   Funder" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Button>
-            <Button layoutX="60.0" layoutY="312.0" mnemonicParsing="false" onAction="#btnGroupOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="Group" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Button>
-            <Button layoutX="60.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="Employee" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Button>
-            <Button layoutX="60.0" layoutY="394.0" mnemonicParsing="false" onAction="#btnFunderOnAction" prefHeight="30.0" style="-fx-background-color: #f5f6fa;" text="Funder" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Button>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="452.0" pickOnBounds="true" preserveRatio="true">
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/icons8-man-with-money-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="466.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../OneDrive/Pictures/Science%20lab%20green%20logo.png" />
+                  <Image url="@../image/Science%20lab%20green%20logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="172.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/icons8-arrow-48.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="172.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/icons8-arrow-48.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="172.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/icons8-arrow-48.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="171.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/icons8-arrow-48.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="172.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/icons8-arrow-48.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="172.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/icons8-arrow-48.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="172.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/icons8-arrow-48.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="171.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/icons8-arrow-48.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="171.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/icons8-arrow-48.png" />
                </image>
             </ImageView>
 
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="ancPanel" layoutX="370.0" layoutY="165.0" prefHeight="485.0" prefWidth="407.0" style="-fx-background-color: #c9fef4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="231.66666666666669" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane fx:id="ancPanel" layoutX="370.0" layoutY="165.0" prefHeight="485.0" prefWidth="407.0" style="-fx-background-color: #89bfb6;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="231.66666666666669" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>
