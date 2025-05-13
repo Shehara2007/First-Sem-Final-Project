@@ -37,7 +37,7 @@ public class EmployeePageController {
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         setnextID();
-        ComboBoxGroupID.setItems(Emodel.getAll());
+      //  ComboBoxGroupID.setItems(Emodel.);
         loadtable();
     }
 

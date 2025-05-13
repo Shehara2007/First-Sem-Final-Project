@@ -31,7 +31,7 @@ public class Employeemodel {
         return CrudUtil.execute("update employee set role = ?,employee_Name = ?,contact = ?,group_Id = ?, email, where employee_Id = ?", employee.getRole(), employee.getEmployeeName(), employee.getContact(), employee.getGroupId(),employee.getEmail(), employee.getEmployeeId() );
     }
 
-    public ObservableList getAll() throws SQLException, ClassNotFoundException {
+    public ArrayList getAll() throws SQLException, ClassNotFoundException {
         ResultSet rs = CrudUtil.execute("select * from employee");
         ArrayList<EmployeeDto> employeetArrayList = new ArrayList<>();
         while (rs.next()) {
@@ -45,7 +45,7 @@ public class Employeemodel {
             );
             employeetArrayList.add(employee);
         }
-        return (ObservableList) employeetArrayList;
+        return employeetArrayList;
     }
 
 

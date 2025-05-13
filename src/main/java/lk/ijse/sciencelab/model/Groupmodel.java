@@ -32,7 +32,7 @@ public class Groupmodel {
         return CrudUtil.execute("update research_group set group_Name = ?,progress = ?,member = ?,research_progress = ?, scientist_Id = ? where group_Id = ?", group.getGroupName(), group.getProgress(), group.getMember(), group.getResearchProgress(),group.getScientistId(), group.getGroupId() );
     }
 
-    public ObservableList getAll() throws SQLException, ClassNotFoundException {
+    public ArrayList getAll() throws SQLException, ClassNotFoundException {
         ResultSet rs = CrudUtil.execute("select * from research_group");
         ArrayList<GroupDto> groupArrayList = new ArrayList<>();
         while (rs.next()) {
@@ -46,7 +46,7 @@ public class Groupmodel {
             );
             groupArrayList.add(group);
         }
-        return (ObservableList) groupArrayList;
+        return  groupArrayList;
     }
 
 
@@ -56,10 +56,10 @@ public class Groupmodel {
     }
 
     public ObservableList getAllProjectID() throws SQLException, ClassNotFoundException {
-        ResultSet rs = CrudUtil.execute("select group_Id from research_group");
+        ResultSet rs = CrudUtil.execute("select scientist_Id from scientist");
         ObservableList<String> groupArrayList = FXCollections.observableArrayList();
         while (rs.next()) {
-            groupArrayList.add(rs.getString("group_Id"));
+            groupArrayList.add(rs.getString("scientist_Id"));
         }
         return  groupArrayList;
 

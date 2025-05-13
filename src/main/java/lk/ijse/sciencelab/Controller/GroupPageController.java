@@ -39,7 +39,7 @@ public class GroupPageController{
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         setnextID();
-        ComboBoxScientist.setItems(Gmodel.getAll());
+ComboBoxScientist.setItems(Gmodel.getAllProjectID());
         loadtable();
     }
 
