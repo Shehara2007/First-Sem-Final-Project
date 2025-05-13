@@ -12,5 +12,5 @@ public class EmployeeDto {
     private String employeeName;
     private String contact;
     private String groupId;
-
+    private String email;
 }

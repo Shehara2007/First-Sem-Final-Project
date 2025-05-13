@@ -10,7 +10,7 @@ import lombok.*;
 public class ChemicalDto {
     private String chemicalId;
     private String chemicalName;
-    private int quantity;
+    private String quantity;
     private String concentration;
     private String supplierId;
 

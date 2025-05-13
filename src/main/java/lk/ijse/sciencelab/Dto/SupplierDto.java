@@ -14,5 +14,4 @@ public class SupplierDto {
     private String equipment;
     private String typeOfSupplier;
 
-
 }

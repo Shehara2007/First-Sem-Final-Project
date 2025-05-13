@@ -1,11 +1,25 @@
 package lk.ijse.sciencelab.Controller;
 
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import lk.ijse.sciencelab.Dto.ProjectDto;
+import lk.ijse.sciencelab.Dto.SupplierDto;
+import lk.ijse.sciencelab.model.Suppliermodel;
+
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 
 public class SupplierPageController {
+    private final Suppliermodel Smodel = new Suppliermodel();
     public Label txtScientistName;
     public TextField txtSupplierName;
     public TextField txtSupplierID;
@@ -13,19 +27,121 @@ public class SupplierPageController {
     public TextField txtEquipment;
     public TextField txtTypeOfSupplier;
     public TableView tblEmployee;
+    public TableColumn TypeOfSupplierclm;
+    public TableColumn Equipmentclm;
+    public TableColumn Contactclm;
+    public TableColumn SupplierNameclm;
+    public TableColumn SupplierIDclm;
+    public Label lblSupplierID;
+    public TableView tblSupplier;
+    public Button btnSave;
+    public ImageView btnReset;
+    public Button btnDelete;
+    public Button btnGenarateReport;
+    public HBox btnUpdate;
+    public ComboBox ComboBoxEquipment;
 
-    public void btnGenarateROnAction(ActionEvent actionEvent) {
+    public void initialize() throws SQLException, ClassNotFoundException {
+        setcellvaluefactory();
+        setnextID();
+        loadtable();
     }
 
-    public void btnDeleteOnAction(ActionEvent actionEvent) {
+    private void setnextID() throws SQLException, ClassNotFoundException {
+            String nextID = Suppliermodel.getText();
+            lblSupplierID.setText(nextID);
     }
 
-    public void btnUpdateOnAction(ActionEvent actionEvent) {
+    private void setcellvaluefactory() {
+        SupplierIDclm.setCellValueFactory(new PropertyValueFactory<>("supplierId"));
+        SupplierNameclm.setCellValueFactory(new PropertyValueFactory<>("supplierName"));
+        Contactclm.setCellValueFactory(new PropertyValueFactory<>("contact"));
+        Equipmentclm.setCellValueFactory(new PropertyValueFactory<>("equipment"));
+        TypeOfSupplierclm.setCellValueFactory(new PropertyValueFactory<>("typeOfSupplier"));
     }
 
-    public void btnResetOnAction(ActionEvent actionEvent) {
+    private void loadtable() throws SQLException, ClassNotFoundException {
+        ArrayList<SupplierDto> supplier = Smodel.getAll();
+
+        ObservableList<SupplierDto> supplierObservableList = FXCollections.observableArrayList();
+        for (SupplierDto s : supplier) {
+            supplierObservableList.add(s);
+        }
+        tblSupplier.setItems(supplierObservableList);
     }
 
-    public void btnSaveOnAction(ActionEvent actionEvent) {
+
+        public void clickOnAction (MouseEvent mouseEvent){
+            SupplierDto selectedItem = (SupplierDto) tblSupplier.getSelectionModel().getSelectedItem();
+
+            if (selectedItem != null) {
+                lblSupplierID.setText(selectedItem.getSupplierId());
+                txtSupplierName.setText(selectedItem.getSupplierName());
+                txtContact.setText(selectedItem.getContact());
+                txtEquipment.setText(selectedItem.getEquipment());
+                txtTypeOfSupplier.setText(selectedItem.getTypeOfSupplier());
+                // save button disable
+                btnSave.setDisable(true);
+                // update, delete button enable
+                btnUpdate.setDisable(false);
+                btnDelete.setDisable(false);
+            }
+        }
+            public void btnSaveOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+                String supplierId = lblSupplierID.getText();
+                String supplierName = txtSupplierName.getText();
+                String contact = txtContact.getText();
+                String equipment = txtEquipment.getText();
+                String typeOfSupplier = txtTypeOfSupplier.getText();
+
+                SupplierDto supplier = new SupplierDto(supplierId, supplierName, contact, equipment, typeOfSupplier);
+                boolean issave = Smodel.save(supplier);
+
+                if (issave) {
+                    new Alert(Alert.AlertType.INFORMATION, "Supplier Saved", ButtonType.OK).show();
+                    loadtable();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Supplier NotSaved", ButtonType.OK).show();
+                }
+
+            }
+
+            public void btnResetOnAction (ActionEvent actionEvent){
+            }
+
+            public void btnUpdateOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+
+                String supplierId = lblSupplierID.getText();
+                String supplierName = txtSupplierName.getText();
+                String contact = txtContact.getText();
+                String equipment = txtEquipment.getText();
+                String typeOfSupplier = txtTypeOfSupplier.getText();
+
+                SupplierDto supplier = new SupplierDto(supplierId, supplierName, contact, equipment, typeOfSupplier);
+                boolean isupdate = Smodel.update(supplier);
+
+                if (isupdate) {
+                    new Alert(Alert.AlertType.INFORMATION, "Supplier Update", ButtonType.OK).show();
+                    loadtable();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Supplier NotUpdate", ButtonType.OK).show();
+                }
+            }
+
+            public void btnDeleteOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+                String supplierID = lblSupplierID.getText();
+                boolean isDelete = Smodel.DeleteSupplier(supplierID);
+
+                if (isDelete) {
+                    new Alert(Alert.AlertType.INFORMATION, "Supplier Deleted", ButtonType.OK).show();
+                    loadtable();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Project Not Deleted", ButtonType.OK).show();
+                }
+
+            }
+
+            public void btnGenarateROnAction (ActionEvent actionEvent){
+            }
+
     }
-}

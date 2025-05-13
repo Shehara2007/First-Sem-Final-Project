@@ -14,11 +14,11 @@ public class Appinitializer extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        //FXMLLoader fxmlLoader = new FXMLLoader(Appinitializer.class.getResource("/view/Funder.fxml"));
-        Parent parent=FXMLLoader.load(this.getClass().getResource("/view/Dashboard.fxml"));
+//        FXMLLoader fxmlLoader = new FXMLLoader(Appinitializer.class.getResource("/view/Funder.fxml"));
+        Parent parent=FXMLLoader.load(this.getClass().getResource("/view/login.fxml"));
         Scene scene=new Scene(parent);
 
-        //Scene scene = new Scene(fxmlLoader.load());
+//        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("ScienceLab!");
         stage.setScene(scene);
         stage.show();

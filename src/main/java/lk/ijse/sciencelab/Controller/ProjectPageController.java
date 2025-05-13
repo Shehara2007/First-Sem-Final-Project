@@ -27,7 +27,6 @@ public class ProjectPageController {
     public Button btnSave;
     public Button btnGenarateReport;
 
-
     @FXML
     private TableColumn<?, ?> Descriptionclm;
 
@@ -85,7 +84,6 @@ public class ProjectPageController {
         String nextID = Projectmodel.getText();
         lblProjectID.setText(nextID);
 
-
     }
 
     private void setcellvaluefactory() {
@@ -109,7 +107,6 @@ public class ProjectPageController {
         } else {
             new Alert(Alert.AlertType.ERROR, "Project Not Deleted", ButtonType.OK).show();
         }
-
     }
 
     @FXML
@@ -141,7 +138,6 @@ public class ProjectPageController {
             new Alert(Alert.AlertType.ERROR, "Project NotSaved", ButtonType.OK).show();
         }
 
-
     }
 
     @FXML
@@ -162,7 +158,6 @@ public class ProjectPageController {
         } else {
             new Alert(Alert.AlertType.ERROR, "Project NotUpdate", ButtonType.OK).show();
         }
-
 
     }
 

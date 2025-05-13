@@ -3,6 +3,8 @@ module lk.ijse.sciencelab {
     requires javafx.fxml;
     requires java.sql;
     requires static lombok;
+    requires java.management;
+    requires java.desktop;
 
 
     opens lk.ijse.sciencelab to javafx.fxml;
