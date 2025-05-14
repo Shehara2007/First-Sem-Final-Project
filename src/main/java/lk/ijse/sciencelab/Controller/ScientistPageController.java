@@ -7,12 +7,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.sciencelab.Dto.ScientistDto;
+import lk.ijse.sciencelab.model.Employeemodel;
 import lk.ijse.sciencelab.model.Scientistmodel;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class ScientistPageController{
     private final Scientistmodel Scmodel = new Scientistmodel();
+    private final Employeemodel employeemodel = new Employeemodel();
     public Button btnGenarateReport;
     public TextField txtContact;
     public TableColumn Contactclm;
@@ -21,7 +24,6 @@ public class ScientistPageController{
     public TableColumn ScientistNameclm;
     public TableColumn ScientistIDclm;
     public TableView tblScientist;
-    public TextField txtEmployee;
     public Label lblScientistID;
     public Button btnReset;
     public Button btnUpdate;
@@ -29,11 +31,12 @@ public class ScientistPageController{
     public TextField txtScientistName;
     public Button btnSave;
     public TextField txtspecialization;
-    public ComboBox ComboBoxEmployee;
+    public ComboBox <String> ComboBoxEmployee;
 
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         setnextID();
+        ComboBoxEmployee.setItems(employeemodel.getAllEmployeeId());
         loadtable();
     }
 
@@ -68,7 +71,7 @@ public class ScientistPageController{
             lblScientistID.setText(selectedItem.getScientistId());
             txtScientistName.setText(selectedItem.getScientistName());
             txtContact.setText(selectedItem.getContact());
-            txtEmployee.setText(selectedItem.getEmployee());
+            ComboBoxEmployee.setValue(selectedItem.getEmployee());
             txtspecialization.setText(selectedItem.getSpecialization());
             // save button disable
             btnSave.setDisable(true);
@@ -81,7 +84,7 @@ public class ScientistPageController{
         String scientistID = lblScientistID.getText();
         String scientistName = txtScientistName.getText();
         String contact = txtContact.getText();
-        String employee = txtEmployee.getText();
+        String employee = ComboBoxEmployee.getValue();
         String specialization = txtspecialization.getText();
 
         ScientistDto scientist = new ScientistDto(scientistID, scientistName, contact, employee, specialization);
@@ -104,7 +107,7 @@ public class ScientistPageController{
         String scientistID = lblScientistID.getText();
         String scientistName = txtScientistName.getText();
         String contact = txtContact.getText();
-        String employee = txtEmployee.getText();
+        String employee = ComboBoxEmployee.getValue();
         String specialization = txtspecialization.getText();
 
         ScientistDto scientist = new ScientistDto(scientistID, scientistName, contact, employee, specialization);
@@ -118,17 +121,39 @@ public class ScientistPageController{
         }
     }
 
-    public void btnDeleteOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+    public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String scientistID = lblScientistID.getText();
-        boolean isDelete = Scmodel.DeleteScientist(scientistID);
 
-        if (isDelete) {
-            new Alert(Alert.AlertType.INFORMATION, "Scientist Deleted", ButtonType.OK).show();
-            loadtable();
+        // Check if a scientist ID is selected
+        if (scientistID == null || scientistID.trim().isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please select a scientist to delete.", ButtonType.OK).show();
+            return;
+        }
+
+        // Confirmation popup
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.setTitle("Delete Confirmation");
+        confirmAlert.setHeaderText("Are you sure?");
+        confirmAlert.setContentText("Do you really want to delete this scientist? This action cannot be undone.");
+
+        Optional<ButtonType> result = confirmAlert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            // Proceed with deletion
+            boolean isDelete = Scmodel.DeleteScientist(scientistID);
+
+            if (isDelete) {
+                new Alert(Alert.AlertType.INFORMATION, "Scientist Deleted", ButtonType.OK).show();
+                loadtable();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Scientist Not Deleted", ButtonType.OK).show();
+            }
         } else {
-            new Alert(Alert.AlertType.ERROR, "Scientist Not Deleted", ButtonType.OK).show();
+            // User cancelled
+            new Alert(Alert.AlertType.INFORMATION, "Deletion Cancelled", ButtonType.OK).show();
         }
     }
+
 
     public void btnGenarateROnAction (ActionEvent actionEvent){
     }

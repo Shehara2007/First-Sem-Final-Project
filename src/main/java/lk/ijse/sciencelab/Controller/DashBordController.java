@@ -79,6 +79,7 @@ public class DashBordController {
     public void btnSetingsOnAction(ActionEvent actionEvent) {
         nevigateTo("/view/Settings.fxml");
     }
+
     private void nevigateTo(String s) {
         try {
             ancPanel.getChildren().clear();
@@ -88,12 +89,11 @@ public class DashBordController {
             pane.prefHeightProperty().bind(ancPanel.heightProperty());
 
             ancPanel.getChildren().add(pane);
-        }catch (Exception e) {
+        } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Page Not Found!").show();
             e.printStackTrace();
 
         }
     }
-
-
 }
+

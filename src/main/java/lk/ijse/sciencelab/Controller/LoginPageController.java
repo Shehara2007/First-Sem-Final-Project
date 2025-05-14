@@ -15,7 +15,7 @@ public class LoginPageController {
     public TextField txtUsername;
     public Button btnLogin;
     public Label lblError;
-    private User user = new User("shehara", "0708");
+    private User user = new User("1", "1");
 
     public void loginOnAction(ActionEvent actionEvent) {
         String username = txtUsername.getText();
@@ -29,6 +29,7 @@ public class LoginPageController {
                 Scene scene = new Scene(dashboardRoot);
                 stage.setScene(scene);
                 stage.setTitle("Dashboard");
+                stage.setMaximized(true);
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -36,11 +37,7 @@ public class LoginPageController {
         } else {
             showAlert("Invalid username or password.", Alert.AlertType.ERROR);
         }
-
     }
-
-
-
 
         private void showAlert(String message, Alert.AlertType type) {
             Alert alert = new Alert(type);

@@ -16,17 +16,16 @@ import lk.ijse.sciencelab.model.Suppliermodel;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Optional;
 
 
 public class SupplierPageController {
     private final Suppliermodel Smodel = new Suppliermodel();
     public Label txtScientistName;
     public TextField txtSupplierName;
-    public TextField txtSupplierID;
     public TextField txtContact;
     public TextField txtEquipment;
     public TextField txtTypeOfSupplier;
-    public TableView tblEmployee;
     public TableColumn TypeOfSupplierclm;
     public TableColumn Equipmentclm;
     public TableColumn Contactclm;
@@ -39,7 +38,6 @@ public class SupplierPageController {
     public Button btnDelete;
     public Button btnGenarateReport;
     public HBox btnUpdate;
-    public ComboBox ComboBoxEquipment;
 
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
@@ -128,20 +126,39 @@ public class SupplierPageController {
                 }
             }
 
-            public void btnDeleteOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-                String supplierID = lblSupplierID.getText();
-                boolean isDelete = Smodel.DeleteSupplier(supplierID);
+    public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        String supplierID = lblSupplierID.getText();
 
-                if (isDelete) {
-                    new Alert(Alert.AlertType.INFORMATION, "Supplier Deleted", ButtonType.OK).show();
-                    loadtable();
-                } else {
-                    new Alert(Alert.AlertType.ERROR, "Project Not Deleted", ButtonType.OK).show();
-                }
+        // Check if supplierID is selected
+        if (supplierID == null || supplierID.trim().isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please select a supplier to delete.", ButtonType.OK).show();
+            return;
+        }
 
+        // Confirmation alert
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.setTitle("Delete Confirmation");
+        confirmAlert.setHeaderText("Are you sure?");
+        confirmAlert.setContentText("Do you really want to delete this supplier? This action cannot be undone.");
+
+        Optional<ButtonType> result = confirmAlert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            boolean isDelete = Smodel.DeleteSupplier(supplierID);
+
+            if (isDelete) {
+                new Alert(Alert.AlertType.INFORMATION, "Supplier Deleted", ButtonType.OK).show();
+                loadtable();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Supplier Not Deleted", ButtonType.OK).show();
             }
+        } else {
+            new Alert(Alert.AlertType.INFORMATION, "Deletion Cancelled", ButtonType.OK).show();
+        }
+    }
 
-            public void btnGenarateROnAction (ActionEvent actionEvent){
+
+    public void btnGenarateROnAction (ActionEvent actionEvent){
             }
 
     }

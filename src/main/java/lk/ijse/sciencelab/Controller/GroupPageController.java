@@ -3,6 +3,7 @@ package lk.ijse.sciencelab.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
@@ -12,6 +13,7 @@ import lk.ijse.sciencelab.model.Groupmodel;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class GroupPageController{
     private final Groupmodel Gmodel = new Groupmodel();
@@ -25,14 +27,14 @@ public class GroupPageController{
     public TableColumn Memberclm;
     public TableColumn Progressclm;
     public TableColumn GroupNameclm;
-    public TableColumn GroupIDclm;
-    public TableView tblGroup;
+    public TableColumn <?,?> GroupIDclm;
+    public TableView <GroupDto> tblGroup;
     public TextField txtResearchOfProgress;
     public TextField txtMember;
     public TextField txtProgress;
     public TextField txtGroupName;
     public Label lblGroupID;
-    public ComboBox ComboBoxScientist;
+    public ComboBox <String> ComboBoxScientist;
 
 
 
@@ -53,8 +55,8 @@ ComboBoxScientist.setItems(Gmodel.getAllProjectID());
         GroupNameclm.setCellValueFactory(new PropertyValueFactory<>("groupName"));
         Progressclm.setCellValueFactory(new PropertyValueFactory<>("progress"));
         Memberclm.setCellValueFactory(new PropertyValueFactory<>("member"));
-        ResearchOfProgressclm.setCellValueFactory(new PropertyValueFactory<>("researchOfProgress"));
-        ScientistIDclm.setCellValueFactory(new PropertyValueFactory<>("scientistID"));
+        ResearchOfProgressclm.setCellValueFactory(new PropertyValueFactory<>("researchProgress"));
+        ScientistIDclm.setCellValueFactory(new PropertyValueFactory<>("scientistId"));
 
     }
 
@@ -67,9 +69,14 @@ ComboBoxScientist.setItems(Gmodel.getAllProjectID());
         }
         tblGroup.setItems(groupObservableList);
     }
+    @FXML
+    void tableClickOnAction(MouseEvent event) {
+        System.out.println("clickOnAction");
+        GroupDto selectedItem = tblGroup.getSelectionModel().getSelectedItem();
 
-    public void clickOnAction (MouseEvent mouseEvent){
-        GroupDto selectedItem = (GroupDto) tblGroup.getSelectionModel().getSelectedItem();
+        System.out.println("clicked");
+
+        System.out.println(selectedItem.getGroupName());
 
         if (selectedItem != null) {
             lblGroupID.setText(selectedItem.getGroupId());
@@ -78,6 +85,29 @@ ComboBoxScientist.setItems(Gmodel.getAllProjectID());
             txtMember.setText(selectedItem.getMember());
             txtResearchOfProgress.setText(selectedItem.getResearchProgress());
             ComboBoxScientist.setValue(selectedItem.getScientistId());
+            // save button disable
+            btnSave.setDisable(true);
+            // update, delete button enable
+            btnUpdate.setDisable(false);
+            btnDelete.setDisable(false);
+        }
+    }
+
+    public void clickOnAction (MouseEvent mouseEvent){
+        System.out.println("clickOnAction");
+        GroupDto selectedItem = tblGroup.getSelectionModel().getSelectedItem();
+
+        System.out.println("clicked");
+
+        System.out.println(selectedItem.getGroupName());
+
+        if (selectedItem != null) {
+            lblGroupID.setText(selectedItem.getGroupId());
+            txtGroupName.setText(selectedItem.getGroupName());
+            txtProgress.setText(selectedItem.getProgress());
+            txtMember.setText(selectedItem.getMember());
+            txtResearchOfProgress.setText(selectedItem.getResearchProgress());
+            //ComboBoxScientist.setValue(selectedItem.getScientistId());
 
             // save button disable
             btnSave.setDisable(true);
@@ -129,18 +159,39 @@ ComboBoxScientist.setItems(Gmodel.getAllProjectID());
         }
     }
 
-    public void btnDeleteOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+    public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String groupID = lblGroupID.getText();
-        boolean isDelete = Gmodel.DeleteGroup(groupID);
 
-        if (isDelete) {
-            new Alert(Alert.AlertType.INFORMATION, "Group Deleted", ButtonType.OK).show();
-            loadtable();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Group Not Deleted", ButtonType.OK).show();
+        // Check if a group is selected
+        if (groupID == null || groupID.trim().isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please select a group to delete.", ButtonType.OK).show();
+            return;
         }
 
+        // Show confirmation alert
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.setTitle("Delete Confirmation");
+        confirmAlert.setHeaderText("Are you sure?");
+        confirmAlert.setContentText("Do you really want to delete this group? This action cannot be undone.");
+
+        Optional<ButtonType> result = confirmAlert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            // If confirmed, delete
+            boolean isDelete = Gmodel.DeleteGroup(groupID);
+
+            if (isDelete) {
+                new Alert(Alert.AlertType.INFORMATION, "Group Deleted", ButtonType.OK).show();
+                loadtable();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Group Not Deleted", ButtonType.OK).show();
+            }
+        } else {
+            // If cancelled
+            new Alert(Alert.AlertType.INFORMATION, "Deletion Cancelled", ButtonType.OK).show();
+        }
     }
+
 
     public void btnGenarateROnAction (ActionEvent actionEvent){
     }

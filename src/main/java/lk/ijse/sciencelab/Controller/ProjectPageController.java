@@ -14,10 +14,10 @@ import lk.ijse.sciencelab.model.Projectmodel;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class ProjectPageController {
     private final Projectmodel Pmodel = new Projectmodel();
-    public Label txtScientistID1;
     public Label lblProjectID;
     public DatePicker txtStartDate;
     public DatePicker txtEndDate;
@@ -99,15 +99,37 @@ public class ProjectPageController {
     @FXML
     void btnDeleteOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String projectID = lblProjectID.getText();
-        boolean isDelete = Pmodel.DeleteProject(projectID);
 
-        if (isDelete) {
-            new Alert(Alert.AlertType.INFORMATION, "Project Deleted", ButtonType.OK).show();
-            loadtable();
+        // Check if a project ID is selected
+        if (projectID == null || projectID.trim().isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please select a project to delete.", ButtonType.OK).show();
+            return;
+        }
+
+        // Confirmation alert before deletion
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.setTitle("Delete Confirmation");
+        confirmAlert.setHeaderText("Are you sure?");
+        confirmAlert.setContentText("Do you really want to delete this project? This action cannot be undone.");
+
+        Optional<ButtonType> result = confirmAlert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            // User confirmed deletion
+            boolean isDelete = Pmodel.DeleteProject(projectID);
+
+            if (isDelete) {
+                new Alert(Alert.AlertType.INFORMATION, "Project Deleted", ButtonType.OK).show();
+                loadtable();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Project Not Deleted", ButtonType.OK).show();
+            }
         } else {
-            new Alert(Alert.AlertType.ERROR, "Project Not Deleted", ButtonType.OK).show();
+            // User cancelled deletion
+            new Alert(Alert.AlertType.INFORMATION, "Deletion Cancelled", ButtonType.OK).show();
         }
     }
+
 
     @FXML
     void btnGenarateROnAction(ActionEvent event) {

@@ -12,6 +12,7 @@ import lk.ijse.sciencelab.model.Fundermodel;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class FunderPageController {
     private final Fundermodel Fmodel = new Fundermodel();
@@ -26,12 +27,11 @@ public class FunderPageController {
     public TableColumn Amountclm;
     public TableColumn Organizationclm;
     public TextField txtOrganization;
-    public TextField txtProject;
     public TextField txtAmount;
     public TextField txtFunderName;
     public Label lblFunderID;
     public Button btnUpdate;
-    public ComboBox ComboBoxProject;
+    public ComboBox<String> ComboBoxProject;
 
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
@@ -70,7 +70,7 @@ public class FunderPageController {
             lblFunderID.setText(selectedItem.getFunderId());
             txtFunderName.setText(selectedItem.getFunderName());
             txtAmount.setText(String.valueOf(selectedItem.getAmount()));
-            txtProject.setText(selectedItem.getProject());
+            ComboBoxProject.setValue(selectedItem.getProject());
             txtOrganization.setText(selectedItem.getOrganization());
             // save button disable
             btnSave.setDisable(true);
@@ -83,7 +83,7 @@ public class FunderPageController {
         String funderId = lblFunderID.getText();
         String funderName = txtFunderName.getText();
         Double amount = Double. valueOf(txtAmount.getText());
-        String project = txtProject.getText();
+        String project = (String) ComboBoxProject.getValue();
         String organization = txtOrganization.getText();
 
         FunderDto funder = new FunderDto(funderId, funderName, amount, project, organization);
@@ -106,7 +106,7 @@ public class FunderPageController {
         String funderId = lblFunderID.getText();
         String funderName = txtFunderName.getText();
         Double amount = Double. valueOf(txtAmount.getText());
-        String project = txtProject.getText();
+        String project = (String) ComboBoxProject.getValue();
         String organization = txtOrganization.getText();
 
         FunderDto funder = new FunderDto(funderId, funderName, amount, project, organization);
@@ -120,18 +120,39 @@ public class FunderPageController {
         }
     }
 
-    public void btnDeleteOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+    public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String funderID = lblFunderID.getText();
-        boolean isDelete = Fmodel.DeleteFunder(funderID);
 
-        if (isDelete) {
-            new Alert(Alert.AlertType.INFORMATION, "Funder Deleted", ButtonType.OK).show();
-            loadtable();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Funder Not Deleted", ButtonType.OK).show();
+        // Check if a funder is selected
+        if (funderID == null || funderID.trim().isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please select a funder to delete.", ButtonType.OK).show();
+            return;
         }
 
+        // Show confirmation alert
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.setTitle("Delete Confirmation");
+        confirmAlert.setHeaderText("Are you sure?");
+        confirmAlert.setContentText("Do you really want to delete this funder? This action cannot be undone.");
+
+        Optional<ButtonType> result = confirmAlert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            // If confirmed, delete
+            boolean isDelete = Fmodel.DeleteFunder(funderID);
+
+            if (isDelete) {
+                new Alert(Alert.AlertType.INFORMATION, "Funder Deleted", ButtonType.OK).show();
+                loadtable();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Funder Not Deleted", ButtonType.OK).show();
+            }
+        } else {
+            // If cancelled
+            new Alert(Alert.AlertType.INFORMATION, "Deletion Cancelled", ButtonType.OK).show();
+        }
     }
+
 
     public void btnGenarateROnAction (ActionEvent actionEvent){
     }

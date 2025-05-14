@@ -1,4 +1,5 @@
 package lk.ijse.sciencelab.model;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lk.ijse.sciencelab.Dto.EmployeeDto;
 
@@ -28,7 +29,7 @@ public class Employeemodel {
     }
 
     public boolean update(EmployeeDto employee) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("update employee set role = ?,employee_Name = ?,contact = ?,group_Id = ?, email, where employee_Id = ?", employee.getRole(), employee.getEmployeeName(), employee.getContact(), employee.getGroupId(),employee.getEmail(), employee.getEmployeeId() );
+        return CrudUtil.execute("update employee set role = ?,employee_Name = ?,contact = ?,group_Id = ?, email = ? where employee_Id = ?", employee.getRole(), employee.getEmployeeName(), employee.getContact(), employee.getGroupId(),employee.getEmail(), employee.getEmployeeId() );
     }
 
     public ArrayList getAll() throws SQLException, ClassNotFoundException {
@@ -53,5 +54,16 @@ public class Employeemodel {
         return CrudUtil.execute("delete from employee where employee_Id = ?", employeeID);
 
     }
-}
+
+    public ObservableList getAllEmployeeId() throws SQLException, ClassNotFoundException {
+        ResultSet rs = CrudUtil.execute("select employee_Id from employee");
+        ObservableList<String> equipmentArrayList = FXCollections.observableArrayList();
+        while (rs.next()) {
+            equipmentArrayList.add(rs.getString("employee_Id"));
+        }
+        return  equipmentArrayList;
+
+    }
+    }
+
 

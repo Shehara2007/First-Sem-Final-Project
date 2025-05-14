@@ -15,6 +15,7 @@ import lk.ijse.sciencelab.model.Projectmodel;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class ChemicalPageController {
     private final Chemicalmodel Cmodel = new Chemicalmodel();
@@ -22,14 +23,14 @@ public class ChemicalPageController {
     public TextField txtQuantity;
     public TextField txtConcentration;
     public TextField txtSupID;
-    public TableView tblChemical;
+    public TableView<ChemicalDto> tblChemical;
     public Label lblChemicalID;
     public TableColumn ChemicalIDclm;
     public TableColumn Quantityclm;
     public TableColumn ChemicalNameclm;
     public TableColumn Concentrationclm;
     public TableColumn SupIDclm;
-    public ComboBox ComboBoxSupplier;
+    public ComboBox <String>ComboBoxSupplier;
     public ImageView btnSave;
     public Button btnReset;
     public Button btnUpdate;
@@ -59,37 +60,21 @@ public class ChemicalPageController {
     }
 
     private void setcellvaluefactory() {
-        ChemicalIDclm.setCellValueFactory(new PropertyValueFactory<>("ChemicalID"));
+        ChemicalIDclm.setCellValueFactory(new PropertyValueFactory<>("chemicalId"));
         ChemicalNameclm.setCellValueFactory(new PropertyValueFactory<>("ChemicalName"));
         Quantityclm.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
         Concentrationclm.setCellValueFactory(new PropertyValueFactory<>("Concentration"));
-        SupIDclm.setCellValueFactory(new PropertyValueFactory<>("SupID"));
+        SupIDclm.setCellValueFactory(new PropertyValueFactory<>("supplierId"));
     }
 
 
-    public void clickOnAction (MouseEvent mouseEvent){
-        ChemicalDto selectedItem = (ChemicalDto) tblChemical.getSelectionModel().getSelectedItem();
 
-        if (selectedItem != null) {
-            lblChemicalID.setText(selectedItem.getChemicalId());
-            txtChemicalName.setText(selectedItem.getChemicalName());
-            txtQuantity.setText(selectedItem.getQuantity());
-            txtConcentration.setText(selectedItem.getConcentration());
-            txtSupID.setText(selectedItem.getSupplierId());
-
-            // save button disable
-            btnSave.setDisable(true);
-            // update, delete button enable
-            btnUpdate.setDisable(false);
-            btnDelete.setDisable(false);
-        }
-    }
     public void btnSaveOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String chemicalId = lblChemicalID.getText();
         String chemicalName = txtChemicalName.getText();
         String quantity =(txtQuantity.getText());
         String concentration = txtConcentration.getText();
-        String supplierId = txtSupID.getText();
+        String supplierId = (String) ComboBoxSupplier.getValue();
 
         ChemicalDto chemical = new ChemicalDto(chemicalId, chemicalName, quantity, concentration, supplierId);
         boolean issave = Cmodel.save(chemical);
@@ -105,16 +90,36 @@ public class ChemicalPageController {
 
 
     public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String ChemicalID = lblChemicalID.getText();
-        boolean isDelete = Cmodel.DeleteChemical(ChemicalID);
+        String chemicalId = lblChemicalID.getText();
 
-        if (isDelete) {
-            new Alert(Alert.AlertType.INFORMATION, "Chemical Deleted", ButtonType.OK).show();
-            loadtable();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Chemical Not Deleted", ButtonType.OK).show();
+        // Check if chemical ID is selected
+        if (chemicalId == null || chemicalId.trim().isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please select a chemical to delete.", ButtonType.OK).show();
+            return;
+        }
+
+        // Confirmation Alert before deletion
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.setTitle("Delete Confirmation");
+        confirmAlert.setHeaderText("Are you sure?");
+        confirmAlert.setContentText("Do you really want to delete this employee? This action cannot be undone.");
+
+        // Show the confirmation and wait for user action
+        Optional<ButtonType> result = confirmAlert.showAndWait();
+
+        // Proceed only if user clicks YES
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            boolean isDelete = Cmodel.DeleteChemical(chemicalId);
+
+            if (isDelete) {
+                new Alert(Alert.AlertType.INFORMATION, "Chemical Deleted", ButtonType.OK).show();
+                loadtable();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Chemical Not Deleted", ButtonType.OK).show();
+            }
         }
     }
+
 
     public void btnResetOnAction (ActionEvent actionEvent){
     }
@@ -124,7 +129,7 @@ public class ChemicalPageController {
         String chemicalName = txtChemicalName.getText();
         String quantity = (txtQuantity.getText());
         String concentration = txtConcentration.getText();
-        String supplierId = txtSupID.getText();
+        String supplierId = (String) ComboBoxSupplier.getValue();
 
         ChemicalDto chemical = new ChemicalDto(chemicalId, chemicalName, quantity, concentration, supplierId);
         boolean isupdate = Cmodel.update(chemical);
@@ -141,4 +146,21 @@ public class ChemicalPageController {
     public void btnGenarateROnAction (ActionEvent actionEvent){
     }
 
+    public void tableClickOnAction(MouseEvent mouseEvent) {
+        ChemicalDto selectedItem = tblChemical.getSelectionModel().getSelectedItem();
+
+        if (selectedItem != null) {
+            lblChemicalID.setText(selectedItem.getChemicalId());
+            txtChemicalName.setText(selectedItem.getChemicalName());
+            txtQuantity.setText(selectedItem.getQuantity());
+            txtConcentration.setText(selectedItem.getConcentration());
+            ComboBoxSupplier.setValue(selectedItem.getSupplierId());
+
+            // save button disable
+            btnSave.setDisable(true);
+            // update, delete button enable
+            btnUpdate.setDisable(false);
+            btnDelete.setDisable(false);
+        }
+    }
 }

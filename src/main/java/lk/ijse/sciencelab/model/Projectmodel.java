@@ -1,5 +1,7 @@
 package lk.ijse.sciencelab.model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import lk.ijse.sciencelab.Dto.ProjectDto;
 import lk.ijse.sciencelab.util.CrudUtil;
 
@@ -51,5 +53,16 @@ public class Projectmodel {
     public boolean DeleteProject(String projectID) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("delete from project where project_id = ?", projectID);
     }
-}
+
+    public ObservableList getAllProjectID() throws SQLException, ClassNotFoundException {
+        ResultSet rs = CrudUtil.execute("select project_Id from project");
+        ObservableList<String> supplierDtoArrayList = FXCollections.observableArrayList();
+        while (rs.next()) {
+            supplierDtoArrayList.add(rs.getString("project_Id"));
+        }
+        return supplierDtoArrayList;
+
+    }
+    }
+
 

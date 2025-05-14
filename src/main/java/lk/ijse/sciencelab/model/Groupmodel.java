@@ -64,5 +64,16 @@ public class Groupmodel {
         return  groupArrayList;
 
     }
-}
+
+    public ObservableList getgroupIds() throws SQLException, ClassNotFoundException {
+        ResultSet rs = CrudUtil.execute("select group_Id from research_group");
+        ObservableList<String> equipmentArrayList = FXCollections.observableArrayList();
+        while (rs.next()) {
+            equipmentArrayList.add(rs.getString("group_Id"));
+        }
+        return  equipmentArrayList;
+
+    }
+    }
+
 
