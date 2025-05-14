@@ -3,6 +3,7 @@ package lk.ijse.sciencelab.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
@@ -25,14 +26,14 @@ public class GroupPageController{
     public TableColumn Memberclm;
     public TableColumn Progressclm;
     public TableColumn GroupNameclm;
-    public TableColumn GroupIDclm;
-    public TableView tblGroup;
+    public TableColumn <?,?> GroupIDclm;
+    public TableView <GroupDto> tblGroup;
     public TextField txtResearchOfProgress;
     public TextField txtMember;
     public TextField txtProgress;
     public TextField txtGroupName;
     public Label lblGroupID;
-    public ComboBox ComboBoxScientist;
+    public ComboBox <String> ComboBoxScientist;
 
 
 
@@ -53,8 +54,8 @@ ComboBoxScientist.setItems(Gmodel.getAllProjectID());
         GroupNameclm.setCellValueFactory(new PropertyValueFactory<>("groupName"));
         Progressclm.setCellValueFactory(new PropertyValueFactory<>("progress"));
         Memberclm.setCellValueFactory(new PropertyValueFactory<>("member"));
-        ResearchOfProgressclm.setCellValueFactory(new PropertyValueFactory<>("researchOfProgress"));
-        ScientistIDclm.setCellValueFactory(new PropertyValueFactory<>("scientistID"));
+        ResearchOfProgressclm.setCellValueFactory(new PropertyValueFactory<>("researchProgress"));
+        ScientistIDclm.setCellValueFactory(new PropertyValueFactory<>("scientistId"));
 
     }
 
@@ -67,9 +68,14 @@ ComboBoxScientist.setItems(Gmodel.getAllProjectID());
         }
         tblGroup.setItems(groupObservableList);
     }
+    @FXML
+    void tableClickOnAction(MouseEvent event) {
+        System.out.println("clickOnAction");
+        GroupDto selectedItem = tblGroup.getSelectionModel().getSelectedItem();
 
-    public void clickOnAction (MouseEvent mouseEvent){
-        GroupDto selectedItem = (GroupDto) tblGroup.getSelectionModel().getSelectedItem();
+        System.out.println("clicked");
+
+        System.out.println(selectedItem.getGroupName());
 
         if (selectedItem != null) {
             lblGroupID.setText(selectedItem.getGroupId());
@@ -78,6 +84,29 @@ ComboBoxScientist.setItems(Gmodel.getAllProjectID());
             txtMember.setText(selectedItem.getMember());
             txtResearchOfProgress.setText(selectedItem.getResearchProgress());
             ComboBoxScientist.setValue(selectedItem.getScientistId());
+            // save button disable
+            btnSave.setDisable(true);
+            // update, delete button enable
+            btnUpdate.setDisable(false);
+            btnDelete.setDisable(false);
+        }
+    }
+
+    public void clickOnAction (MouseEvent mouseEvent){
+        System.out.println("clickOnAction");
+        GroupDto selectedItem = tblGroup.getSelectionModel().getSelectedItem();
+
+        System.out.println("clicked");
+
+        System.out.println(selectedItem.getGroupName());
+
+        if (selectedItem != null) {
+            lblGroupID.setText(selectedItem.getGroupId());
+            txtGroupName.setText(selectedItem.getGroupName());
+            txtProgress.setText(selectedItem.getProgress());
+            txtMember.setText(selectedItem.getMember());
+            txtResearchOfProgress.setText(selectedItem.getResearchProgress());
+            //ComboBoxScientist.setValue(selectedItem.getScientistId());
 
             // save button disable
             btnSave.setDisable(true);

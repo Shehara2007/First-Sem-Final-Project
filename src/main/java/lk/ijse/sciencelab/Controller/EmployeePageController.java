@@ -9,11 +9,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.sciencelab.Dto.EmployeeDto;
 import lk.ijse.sciencelab.model.Employeemodel;
+import lk.ijse.sciencelab.model.Groupmodel;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class EmployeePageController {
     private final Employeemodel Emodel = new Employeemodel();
+    private final Groupmodel groupmodel = new Groupmodel();
     public Button btnSave;
     public ImageView btnReset;
     public Button btnDelete;
@@ -37,7 +40,7 @@ public class EmployeePageController {
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         setnextID();
-      //  ComboBoxGroupID.setItems(Emodel.);
+        ComboBoxGroupID.setItems(groupmodel.getgroupIds());
         loadtable();
     }
 

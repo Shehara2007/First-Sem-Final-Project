@@ -15,6 +15,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="1006.0" style="-fx-background-color: #067e7f;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sciencelab.Controller.LoginPageController">
 
     <children>
+      <ImageView fitHeight="361.0" fitWidth="402.0" layoutX="7.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
 
 
         <VBox alignment="CENTER" layoutX="202.0" layoutY="19.0" prefHeight="361.0" prefWidth="574.0" spacing="15.0" style="-fx-background-color: #89bfb6; -fx-background-radius: 15; -fx-padding: 15;" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="19.0">
@@ -57,7 +58,7 @@
         </VBox>
       <ImageView fitHeight="394.0" fitWidth="395.0" layoutX="14.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Downloads/gummy-chemistry-lab.png" />
+            <Image url="@../image/gummy-chemistry-lab.png" />
          </image>
       </ImageView>
 

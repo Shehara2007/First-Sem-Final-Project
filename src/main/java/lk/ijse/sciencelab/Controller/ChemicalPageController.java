@@ -22,7 +22,7 @@ public class ChemicalPageController {
     public TextField txtQuantity;
     public TextField txtConcentration;
     public TextField txtSupID;
-    public TableView tblChemical;
+    public TableView<ChemicalDto> tblChemical;
     public Label lblChemicalID;
     public TableColumn ChemicalIDclm;
     public TableColumn Quantityclm;
@@ -59,37 +59,21 @@ public class ChemicalPageController {
     }
 
     private void setcellvaluefactory() {
-        ChemicalIDclm.setCellValueFactory(new PropertyValueFactory<>("ChemicalID"));
+        ChemicalIDclm.setCellValueFactory(new PropertyValueFactory<>("chemicalId"));
         ChemicalNameclm.setCellValueFactory(new PropertyValueFactory<>("ChemicalName"));
         Quantityclm.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
         Concentrationclm.setCellValueFactory(new PropertyValueFactory<>("Concentration"));
-        SupIDclm.setCellValueFactory(new PropertyValueFactory<>("SupID"));
+        SupIDclm.setCellValueFactory(new PropertyValueFactory<>("supplierId"));
     }
 
 
-    public void clickOnAction (MouseEvent mouseEvent){
-        ChemicalDto selectedItem = (ChemicalDto) tblChemical.getSelectionModel().getSelectedItem();
 
-        if (selectedItem != null) {
-            lblChemicalID.setText(selectedItem.getChemicalId());
-            txtChemicalName.setText(selectedItem.getChemicalName());
-            txtQuantity.setText(selectedItem.getQuantity());
-            txtConcentration.setText(selectedItem.getConcentration());
-            txtSupID.setText(selectedItem.getSupplierId());
-
-            // save button disable
-            btnSave.setDisable(true);
-            // update, delete button enable
-            btnUpdate.setDisable(false);
-            btnDelete.setDisable(false);
-        }
-    }
     public void btnSaveOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String chemicalId = lblChemicalID.getText();
         String chemicalName = txtChemicalName.getText();
         String quantity =(txtQuantity.getText());
         String concentration = txtConcentration.getText();
-        String supplierId = txtSupID.getText();
+        String supplierId = (String) ComboBoxSupplier.getValue();
 
         ChemicalDto chemical = new ChemicalDto(chemicalId, chemicalName, quantity, concentration, supplierId);
         boolean issave = Cmodel.save(chemical);
@@ -105,8 +89,8 @@ public class ChemicalPageController {
 
 
     public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String ChemicalID = lblChemicalID.getText();
-        boolean isDelete = Cmodel.DeleteChemical(ChemicalID);
+        String chemicalId = lblChemicalID.getText();
+        boolean isDelete = Cmodel.DeleteChemical(chemicalId);
 
         if (isDelete) {
             new Alert(Alert.AlertType.INFORMATION, "Chemical Deleted", ButtonType.OK).show();
@@ -124,7 +108,7 @@ public class ChemicalPageController {
         String chemicalName = txtChemicalName.getText();
         String quantity = (txtQuantity.getText());
         String concentration = txtConcentration.getText();
-        String supplierId = txtSupID.getText();
+        String supplierId = (String) ComboBoxSupplier.getValue();
 
         ChemicalDto chemical = new ChemicalDto(chemicalId, chemicalName, quantity, concentration, supplierId);
         boolean isupdate = Cmodel.update(chemical);
@@ -141,4 +125,21 @@ public class ChemicalPageController {
     public void btnGenarateROnAction (ActionEvent actionEvent){
     }
 
+    public void tableClickOnAction(MouseEvent mouseEvent) {
+        ChemicalDto selectedItem = tblChemical.getSelectionModel().getSelectedItem();
+
+        if (selectedItem != null) {
+            lblChemicalID.setText(selectedItem.getChemicalId());
+            txtChemicalName.setText(selectedItem.getChemicalName());
+            txtQuantity.setText(selectedItem.getQuantity());
+            txtConcentration.setText(selectedItem.getConcentration());
+            ComboBoxSupplier.setValue(selectedItem.getSupplierId());
+
+            // save button disable
+            btnSave.setDisable(true);
+            // update, delete button enable
+            btnUpdate.setDisable(false);
+            btnDelete.setDisable(false);
+        }
+    }
 }

@@ -7,12 +7,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.sciencelab.Dto.ScientistDto;
+import lk.ijse.sciencelab.model.Employeemodel;
 import lk.ijse.sciencelab.model.Scientistmodel;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ScientistPageController{
     private final Scientistmodel Scmodel = new Scientistmodel();
+    private final Employeemodel employeemodel = new Employeemodel();
     public Button btnGenarateReport;
     public TextField txtContact;
     public TableColumn Contactclm;
@@ -29,11 +31,12 @@ public class ScientistPageController{
     public TextField txtScientistName;
     public Button btnSave;
     public TextField txtspecialization;
-    public ComboBox ComboBoxEmployee;
+    public ComboBox <String> ComboBoxEmployee;
 
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         setnextID();
+        ComboBoxEmployee.setItems(employeemodel.getAllEmployeeId());
         loadtable();
     }
 
@@ -68,7 +71,7 @@ public class ScientistPageController{
             lblScientistID.setText(selectedItem.getScientistId());
             txtScientistName.setText(selectedItem.getScientistName());
             txtContact.setText(selectedItem.getContact());
-            txtEmployee.setText(selectedItem.getEmployee());
+            ComboBoxEmployee.setValue(selectedItem.getEmployee());
             txtspecialization.setText(selectedItem.getSpecialization());
             // save button disable
             btnSave.setDisable(true);
@@ -81,7 +84,7 @@ public class ScientistPageController{
         String scientistID = lblScientistID.getText();
         String scientistName = txtScientistName.getText();
         String contact = txtContact.getText();
-        String employee = txtEmployee.getText();
+        String employee = ComboBoxEmployee.getValue();
         String specialization = txtspecialization.getText();
 
         ScientistDto scientist = new ScientistDto(scientistID, scientistName, contact, employee, specialization);
@@ -104,7 +107,7 @@ public class ScientistPageController{
         String scientistID = lblScientistID.getText();
         String scientistName = txtScientistName.getText();
         String contact = txtContact.getText();
-        String employee = txtEmployee.getText();
+        String employee = ComboBoxEmployee.getValue();
         String specialization = txtspecialization.getText();
 
         ScientistDto scientist = new ScientistDto(scientistID, scientistName, contact, employee, specialization);

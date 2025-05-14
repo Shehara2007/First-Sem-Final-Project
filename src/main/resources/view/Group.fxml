@@ -208,7 +208,7 @@
                            </graphic></Button>
                             </children>
                         </HBox>
-                        <TableView fx:id="tblGroup" prefHeight="151.0" prefWidth="649.0" style="-fx-background-color: #f5f6fa; -fx-background-color: #a2b7be;" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="tblGroup" onMouseClicked="#tableClickOnAction" prefHeight="151.0" prefWidth="649.0" style="-fx-background-color: #f5f6fa; -fx-background-color: #a2b7be;" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="GroupIDclm" prefWidth="75.0" text="Group ID" />
                                 <TableColumn fx:id="GroupNameclm" prefWidth="75.0" text="Group Name" />

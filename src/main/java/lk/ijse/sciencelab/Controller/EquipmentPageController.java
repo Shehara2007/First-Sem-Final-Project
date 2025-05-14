@@ -29,7 +29,7 @@ public class EquipmentPageController{
     public TextField txtQuantity;
     public TextField txtEquipmentName;
     public Label lblEquipmentID;
-    public ComboBox ComboBoxSupplier;
+    public ComboBox <String> ComboBoxSupplier;
     public Button btnReset;
 
 

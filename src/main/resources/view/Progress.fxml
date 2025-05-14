@@ -173,7 +173,7 @@
                            </graphic></Button>
                             </children>
                         </HBox>
-                        <TableView fx:id="tblProgress" prefHeight="151.0" prefWidth="649.0" style="-fx-background-color: #f5f6fa; -fx-background-color: #a2b7be;" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="tblProgress" onMouseClicked="#tableClicOnAction" prefHeight="151.0" prefWidth="649.0" style="-fx-background-color: #f5f6fa; -fx-background-color: #a2b7be;" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="ProgressIDclm" prefWidth="75.0" text="Progress ID" />
                                 <TableColumn fx:id="ProjectIDclm" prefWidth="75.0" text="Project ID" />

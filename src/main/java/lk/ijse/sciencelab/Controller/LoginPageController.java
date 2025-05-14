@@ -15,7 +15,7 @@ public class LoginPageController {
     public TextField txtUsername;
     public Button btnLogin;
     public Label lblError;
-    private User user = new User("shehara", "0708");
+    private User user = new User("malee", "0708");
 
     public void loginOnAction(ActionEvent actionEvent) {
         String username = txtUsername.getText();
@@ -36,11 +36,7 @@ public class LoginPageController {
         } else {
             showAlert("Invalid username or password.", Alert.AlertType.ERROR);
         }
-
     }
-
-
-
 
         private void showAlert(String message, Alert.AlertType type) {
             Alert alert = new Alert(type);

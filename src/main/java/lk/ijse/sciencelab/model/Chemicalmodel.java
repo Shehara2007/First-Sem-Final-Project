@@ -30,7 +30,7 @@ public class Chemicalmodel {
     }
 
     public boolean update(ChemicalDto chemical) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("update chemical set chemical_Name = ?,quantity = ?,concentration = ?,supplier_Id = ?, where chemical_Id = ?", chemical.getChemicalName(), chemical.getQuantity(), chemical.getConcentration(), chemical.getSupplierId(),chemical.getChemicalId());
+        return CrudUtil.execute("update chemical set chemical_Name = ?,quantity = ?,concentration = ?,supplier_Id = ? where chemical_Id = ? ", chemical.getChemicalName(), chemical.getQuantity(), chemical.getConcentration(), chemical.getSupplierId(),chemical.getChemicalId());
     }
 
 
@@ -51,7 +51,7 @@ public class Chemicalmodel {
     }
 
     public boolean DeleteChemical(String ChemicalID) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("delete from chemical where chemical_Id = ?", ChemicalID);
+        return CrudUtil.execute("delete from chemical where chemical_Id = ? ", ChemicalID);
     }
 
     public ObservableList getAllSupplier() throws SQLException, ClassNotFoundException {

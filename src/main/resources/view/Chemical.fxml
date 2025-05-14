@@ -191,7 +191,7 @@
                            </graphic></Button>
                             </children>
                         </HBox>
-                        <TableView fx:id="tblChemical" prefHeight="151.0" prefWidth="649.0" style="-fx-background-color: #f5f6fa; -fx-background-color: #a2b7be;" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="tblChemical" onMouseClicked="#tableClickOnAction" prefHeight="151.0" prefWidth="649.0" style="-fx-background-color: #f5f6fa; -fx-background-color: #a2b7be;" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="ChemicalIDclm" prefWidth="75.0" text="Chemical ID" />
                                 <TableColumn fx:id="ChemicalNameclm" prefWidth="75.0" text="Chemical Name" />
