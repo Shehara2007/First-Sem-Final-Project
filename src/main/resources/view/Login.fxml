@@ -63,7 +63,6 @@
          </Button>
 
             <Label fx:id="lblError" textFill="red" visible="false" />
-
             <padding>
                 <Insets bottom="5.0" right="5.0" top="5.0" />
             </padding>
