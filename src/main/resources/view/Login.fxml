@@ -36,7 +36,7 @@
                 </font>
             </Label>
 
-            <TextField fx:id="txtUsername" maxWidth="250.0" prefHeight="35.0" prefWidth="250.0" promptText="Username">
+            <TextField fx:id="txtUsername" maxWidth="250.0" onAction="#txtUsernameOnAction" prefHeight="35.0" prefWidth="250.0" promptText="Username">
             <font>
                <Font name="System Bold" size="14.0" />
             </font></TextField>

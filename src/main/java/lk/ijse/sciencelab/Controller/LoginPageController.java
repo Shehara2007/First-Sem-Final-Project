@@ -44,5 +44,10 @@ public class LoginPageController {
             alert.setContentText(message);
             alert.show();
         }
+
+    public void txtUsernameOnAction(ActionEvent actionEvent) {
+        txtPassword.requestFocus();
+
     }
+}
 
