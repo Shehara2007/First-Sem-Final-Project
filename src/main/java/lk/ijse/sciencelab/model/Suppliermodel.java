@@ -1,4 +1,6 @@
 package lk.ijse.sciencelab.model;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import lk.ijse.sciencelab.Dto.SupplierDto;
 import lk.ijse.sciencelab.util.CrudUtil;
 import java.sql.ResultSet;
@@ -19,6 +21,15 @@ public class Suppliermodel {
             return nextIdString;
         }
         return tableCharactor + "001";
+    }
+
+    public static ObservableList<String> getAllSupID() throws SQLException, ClassNotFoundException {
+        ResultSet rs = CrudUtil.execute("select supplier_Id from supplier");
+        ObservableList<String> supplierArrayList = FXCollections.observableArrayList();
+        while (rs.next()) {
+            supplierArrayList.add(rs.getString("supplier_Id"));
+        }
+        return  supplierArrayList;
     }
 
     public boolean save(SupplierDto supplier) throws SQLException, ClassNotFoundException {

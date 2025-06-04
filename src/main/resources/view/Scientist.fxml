@@ -24,7 +24,7 @@
                             <children>
                                 <HBox prefHeight="35.0" prefWidth="600.0">
                            <children>
-                              <Label prefHeight="17.0" prefWidth="116.0" text="Scientist ID" textFill="#f8f8f8">
+                              <Label prefHeight="20.0" prefWidth="168.0" text="Scientist ID" textFill="#f8f8f8">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
@@ -46,7 +46,7 @@
                            </VBox.margin></HBox>
                                 <HBox prefHeight="29.0" prefWidth="600.0">
                                     <children>
-                                        <Label prefHeight="27.0" prefWidth="107.0" text="Scientist Name" textFill="#fffefe">
+                                        <Label prefHeight="26.0" prefWidth="148.0" text="Scientist Name" textFill="#fffefe">
                                             <HBox.margin>
                                                 <Insets left="10.0" top="5.0" />
                                             </HBox.margin>
@@ -65,7 +65,7 @@
                                 </HBox>
                                 <HBox layoutX="10.0" layoutY="74.0" prefHeight="29.0" prefWidth="600.0">
                                     <children>
-                                        <Label prefHeight="29.0" prefWidth="107.0" text="Contact" textFill="#f5f4f4">
+                                        <Label prefHeight="26.0" prefWidth="148.0" text="Contact" textFill="#f5f4f4">
                                             <HBox.margin>
                                                 <Insets left="10.0" top="5.0" />
                                             </HBox.margin>
@@ -83,14 +83,14 @@
                                 </HBox>
                                 <HBox layoutX="10.0" layoutY="103.0" prefHeight="29.0" prefWidth="600.0">
                                     <children>
-                                        <Label prefHeight="29.0" prefWidth="107.0" text="Employee" textFill="#fff9f9">
+                                        <Label prefHeight="26.0" prefWidth="148.0" text="Employee" textFill="#fff9f9">
                                             <HBox.margin>
                                                 <Insets left="10.0" top="5.0" />
                                             </HBox.margin>
                                             <font>
                                                 <Font name="System Bold" size="14.0" />
                                             </font></Label>
-                              <ComboBox fx:id="ComboBoxEmployee" prefHeight="26.0" prefWidth="534.0">
+                              <ComboBox fx:id="ComboBoxEmployee" prefHeight="26.0" prefWidth="535.0">
                                  <HBox.margin>
                                     <Insets right="10.0" top="5.0" />
                                  </HBox.margin>
@@ -101,7 +101,7 @@
                            <children>
                                       <HBox prefHeight="29.0" prefWidth="600.0">
                                           <children>
-                                              <Label prefHeight="26.0" prefWidth="268.0" text="Specializaion" textFill="#ebeaea">
+                                              <Label prefHeight="26.0" prefWidth="148.0" text="Specializaion" textFill="#ebeaea">
                                                   <HBox.margin>
                                                       <Insets left="10.0" top="5.0" />
                                                   </HBox.margin>
@@ -109,14 +109,11 @@
                                                       <Font name="System Bold" size="14.0" />
                                                   </font>
                                     </Label>
-                                    <TextField fx:id="txtspecialization" prefHeight="26.0" prefWidth="630.0" promptText="---------------" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
+                                    <ComboBox fx:id="ComboBoxSpecialization" prefHeight="26.0" prefWidth="418.0">
                                        <HBox.margin>
-                                          <Insets right="10.0" top="5.0" />
+                                          <Insets right="15.0" top="5.0" />
                                        </HBox.margin>
-                                    </TextField>
+                                    </ComboBox>
                                           </children>
                                       </HBox>
                            </children></HBox>

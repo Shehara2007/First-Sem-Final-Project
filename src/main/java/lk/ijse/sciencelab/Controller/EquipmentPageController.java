@@ -8,6 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.sciencelab.Dto.EquipmentDto;
 import lk.ijse.sciencelab.model.Equipmentmodel;
+import lk.ijse.sciencelab.model.Suppliermodel;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -31,15 +32,16 @@ public class EquipmentPageController{
     public Label lblEquipmentID;
     public ComboBox <String> ComboBoxSupplier;
     public Button btnReset;
+    public ComboBox <String>ComboBoxType;
 
 
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         setnextID();
-        ComboBoxSupplier.setItems(Eqmodel.getAllProjectID());
+        ComboBoxSupplier.setItems(Suppliermodel.getAllSupID());
+        ComboBoxType.setItems(FXCollections.observableArrayList( "Measuring Instruments","Glassware","Heating Equipment","Microscopes","Safety Equipment","Mixing and Stirring","Storage Equipment","Analytical Instruments","Miscellaneous","pH Meter","Wash Bottle","Wash Bottle","Lab Timer / Stopwatch","Anemometer"));
         loadtable();
     }
-
     private void setnextID() throws SQLException, ClassNotFoundException {
         String nextID = Equipmentmodel.getText();
         lblEquipmentID.setText(nextID);
@@ -68,7 +70,7 @@ public class EquipmentPageController{
         String equipmentId = lblEquipmentID.getText();
         String equipmentName = txtEquipmentName.getText();
         String quantity = txtQuantity.getText();
-        String type = txtType.getText();
+        String type = ComboBoxType.getValue();
         String supplierId = (String) ComboBoxSupplier.getValue();
 
         EquipmentDto equipment = new EquipmentDto(equipmentId, equipmentName, quantity, type, supplierId);
@@ -91,7 +93,7 @@ public class EquipmentPageController{
         String equipmentId = lblEquipmentID.getText();
         String equipmentName = txtEquipmentName.getText();
         String quantity = txtQuantity.getText();
-        String type = txtType.getText();
+        String type = ComboBoxType.getValue();
         String supplierId = (String) ComboBoxSupplier.getValue();
 
         EquipmentDto equipment = new EquipmentDto(equipmentId, equipmentName, quantity, type, supplierId);
@@ -149,7 +151,7 @@ public class EquipmentPageController{
             lblEquipmentID.setText(selectedItem.getEquipmentId());
             txtEquipmentName.setText(selectedItem.getEquipmentName());
             txtQuantity.setText(String.valueOf(selectedItem.getQuantity()));
-            txtType.setText(selectedItem.getType());
+            ComboBoxType.setValue(selectedItem.getType());
             ComboBoxSupplier.setValue(selectedItem.getSupplierId());
             // save button disable
             btnSave.setDisable(true);

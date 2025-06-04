@@ -32,11 +32,13 @@ public class ScientistPageController{
     public Button btnSave;
     public TextField txtspecialization;
     public ComboBox <String> ComboBoxEmployee;
+    public ComboBox <String>ComboBoxSpecialization;
 
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         setnextID();
         ComboBoxEmployee.setItems(employeemodel.getAllEmployeeId());
+        ComboBoxSpecialization.setItems(FXCollections.observableArrayList( "Biologist","Biologist","Physicist","Microbiologist","Geneticist","Biochemist","Pharmacologist","Nanotechnologist","Immunologist","Materials Scientist","Neuroscientist"));
         loadtable();
     }
 
@@ -72,7 +74,7 @@ public class ScientistPageController{
             txtScientistName.setText(selectedItem.getScientistName());
             txtContact.setText(selectedItem.getContact());
             ComboBoxEmployee.setValue(selectedItem.getEmployee());
-            txtspecialization.setText(selectedItem.getSpecialization());
+            ComboBoxSpecialization.setValue(selectedItem.getSpecialization());
             // save button disable
             btnSave.setDisable(true);
             // update, delete button enable
@@ -85,7 +87,7 @@ public class ScientistPageController{
         String scientistName = txtScientistName.getText();
         String contact = txtContact.getText();
         String employee = ComboBoxEmployee.getValue();
-        String specialization = txtspecialization.getText();
+        String specialization = ComboBoxSpecialization.getValue();
 
         ScientistDto scientist = new ScientistDto(scientistID, scientistName, contact, employee, specialization);
         boolean issave = Scmodel.save(scientist);
@@ -108,7 +110,7 @@ public class ScientistPageController{
         String scientistName = txtScientistName.getText();
         String contact = txtContact.getText();
         String employee = ComboBoxEmployee.getValue();
-        String specialization = txtspecialization.getText();
+        String specialization = ComboBoxSpecialization.getValue();
 
         ScientistDto scientist = new ScientistDto(scientistID, scientistName, contact, employee, specialization);
         boolean isupdate = Scmodel.update(scientist);

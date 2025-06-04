@@ -25,14 +25,14 @@
                                 <HBox prefHeight="35.0" prefWidth="600.0" />
                                 <HBox prefHeight="29.0" prefWidth="600.0">
                                     <children>
-                                        <Label prefHeight="20.0" prefWidth="194.0" text="Group ID" textFill="#fffefe">
+                                        <Label prefHeight="20.0" prefWidth="195.0" text="Group ID" textFill="#fffefe">
                                             <HBox.margin>
                                                 <Insets left="10.0" top="5.0" />
                                             </HBox.margin>
                                             <font>
                                                 <Font name="System Bold" size="14.0" />
                                             </font></Label>
-                              <Label fx:id="lblGroupID" prefHeight="17.0" prefWidth="541.0" text="1" textFill="WHITE">
+                              <Label fx:id="lblGroupID" prefHeight="17.0" prefWidth="535.0" text="1" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -44,7 +44,7 @@
                                 </HBox>
                                 <HBox layoutX="10.0" layoutY="45.0" prefHeight="29.0" prefWidth="600.0">
                                     <children>
-                                        <Label prefHeight="26.0" prefWidth="178.0" text="Group Name" textFill="#fffefe">
+                                        <Label prefHeight="26.0" prefWidth="195.0" text="Group Name" textFill="#fffefe">
                                             <HBox.margin>
                                                 <Insets left="10.0" top="5.0" />
                                             </HBox.margin>
@@ -52,7 +52,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="txtGroupName" prefHeight="26.0" prefWidth="527.0" promptText="Equipment" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
+                                        <TextField fx:id="txtGroupName" prefHeight="26.0" prefWidth="535.0" promptText="Group" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
                                             <HBox.margin>
                                                 <Insets right="10.0" top="5.0" />
                                             </HBox.margin>
@@ -63,14 +63,14 @@
                                 </HBox>
                                 <HBox layoutX="10.0" layoutY="74.0" prefHeight="29.0" prefWidth="600.0">
                                     <children>
-                                        <Label prefHeight="26.0" prefWidth="177.0" text="Progress" textFill="#f5f4f4">
+                                        <Label prefHeight="26.0" prefWidth="195.0" text="Progress" textFill="#f5f4f4">
                                             <HBox.margin>
                                                 <Insets left="10.0" top="5.0" />
                                             </HBox.margin>
                                             <font>
                                                 <Font name="System Bold" size="14.0" />
                                             </font></Label>
-                                        <TextField fx:id="txtProgress" prefHeight="26.0" prefWidth="527.0" promptText="0000000" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
+                                        <TextField fx:id="txtProgress" prefHeight="26.0" prefWidth="535.0" promptText="0000000" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
                                             <HBox.margin>
                                                 <Insets right="10.0" top="5.0" />
                                             </HBox.margin>
@@ -81,14 +81,14 @@
                                 </HBox>
                                 <HBox layoutX="10.0" layoutY="103.0" prefHeight="29.0" prefWidth="600.0">
                                     <children>
-                                        <Label prefHeight="26.0" prefWidth="178.0" text="Member" textFill="#fff9f9">
+                                        <Label prefHeight="26.0" prefWidth="195.0" text="Member" textFill="#fff9f9">
                                             <HBox.margin>
                                                 <Insets left="10.0" top="5.0" />
                                             </HBox.margin>
                                             <font>
                                                 <Font name="System Bold" size="14.0" />
                                             </font></Label>
-                                        <TextField fx:id="txtMember" prefHeight="26.0" prefWidth="527.0" promptText="----------" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
+                                        <TextField fx:id="txtMember" prefHeight="26.0" prefWidth="535.0" promptText="----------" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
                                             <HBox.margin>
                                                 <Insets right="10.0" top="5.0" />
                                             </HBox.margin>
@@ -100,7 +100,7 @@
                                 <HBox layoutX="10.0" layoutY="132.0" prefHeight="29.0" prefWidth="600.0" />
                                 <HBox layoutX="10.0" layoutY="137.0" prefHeight="29.0" prefWidth="600.0">
                                     <children>
-                                        <Label prefHeight="26.0" prefWidth="187.0" text="Research Of Progress " textFill="#ebeaea">
+                                        <Label prefHeight="26.0" prefWidth="195.0" text="Research Of Progress " textFill="#ebeaea">
                                             <HBox.margin>
                                                 <Insets left="10.0" top="5.0" />
                                             </HBox.margin>
@@ -118,7 +118,7 @@
                                 </HBox>
                                 <HBox layoutX="10.0" layoutY="157.0" prefHeight="29.0" prefWidth="600.0">
                            <children>
-                              <Label prefHeight="26.0" prefWidth="183.0" text="Scientist ID" textFill="#ebeaea">
+                              <Label prefHeight="26.0" prefWidth="195.0" text="Scientist ID" textFill="#ebeaea">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
@@ -126,7 +126,7 @@
                                     <Insets left="10.0" top="5.0" />
                                  </HBox.margin>
                               </Label>
-                              <ComboBox fx:id="ComboBoxScientist" prefHeight="26.0" prefWidth="532.0">
+                              <ComboBox fx:id="ComboBoxScientist" prefHeight="26.0" prefWidth="535.0">
                                  <HBox.margin>
                                     <Insets right="10.0" top="5.0" />
                                  </HBox.margin>

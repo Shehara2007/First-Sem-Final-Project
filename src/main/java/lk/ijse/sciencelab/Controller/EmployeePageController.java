@@ -31,17 +31,18 @@ public class EmployeePageController {
     public TableColumn Employeeidclm;
     public TableView tblEmployee;
     public TextField txtEmail;
-    public TextField txtRole;
     public TextField txtContact;
     public TextField txtEmployeeName;
     public Label lblEmployeeID;
     public ComboBox <String> ComboBoxGroupID;
+    public ComboBox  <String> ComboBoxRole;
 
 
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         setnextID();
         ComboBoxGroupID.setItems(groupmodel.getgroupIds());
+        ComboBoxRole.setItems(FXCollections.observableArrayList("Assist ", "Technician", "Quality Control", "Manage Inventory", "Maintain Lab Safety", "Prepare Materials and Equipment", "Data Collection and Analysis", "Troubleshoot Equipment", "Documentation and Reporting", "Help in Training New Staff", "Record Data"));
         loadtable();
     }
 
@@ -73,7 +74,7 @@ public class EmployeePageController {
 
     public void btnSaveOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String employeeID = lblEmployeeID.getText();
-        String role = txtRole.getText();
+        String role = (String) ComboBoxRole.getValue();
         String employeeName = txtEmployeeName.getText();
         String contact = txtContact.getText();
         String groupID = (String) ComboBoxGroupID.getValue();
@@ -98,7 +99,7 @@ public class EmployeePageController {
     public void btnUpdateOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
         String employeeID = lblEmployeeID.getText();
-        String role = txtRole.getText();
+        String role = (String) ComboBoxRole.getValue();
         String employeeName = txtEmployeeName.getText();
         String contact = txtContact.getText();
         String groupID = (String) ComboBoxGroupID.getValue();
@@ -156,7 +157,7 @@ public class EmployeePageController {
 
         if (selectedItem != null) {
             lblEmployeeID.setText(selectedItem.getEmployeeId());
-            txtRole.setText(selectedItem.getRole());
+            ComboBoxRole.setValue(selectedItem.getRole());
             txtEmployeeName.setText(String.valueOf(selectedItem.getEmployeeName()));
             txtContact.setText(selectedItem.getContact());
             ComboBoxGroupID.setValue(selectedItem.getGroupId());

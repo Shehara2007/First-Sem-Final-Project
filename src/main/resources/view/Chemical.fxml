@@ -32,7 +32,7 @@
                                             <font>
                                                 <Font name="System Bold" size="14.0" />
                                             </font></Label>
-                              <Label fx:id="lblChemicalID" prefHeight="20.0" prefWidth="469.0" text="1" textFill="WHITE">
+                              <Label fx:id="lblChemicalID" prefHeight="20.0" prefWidth="535.0" text="1" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -44,7 +44,7 @@
                                 </HBox>
                                 <HBox layoutX="10.0" layoutY="45.0" prefHeight="31.0" prefWidth="666.0">
                                     <children>
-                                        <Label prefHeight="26.0" prefWidth="118.0" text="Chemical Name" textFill="#fffefe">
+                                        <Label prefHeight="26.0" prefWidth="120.0" text="Chemical Name" textFill="#fffefe">
                                             <HBox.margin>
                                                 <Insets left="15.0" top="5.0" />
                                             </HBox.margin>
@@ -52,9 +52,9 @@
                                                 <Font name="System Bold" size="14.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="txtChemicalName" minWidth="-Infinity" prefHeight="26.0" prefWidth="475.0" promptText="Chemical" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
+                                        <TextField fx:id="txtChemicalName" minWidth="-Infinity" prefHeight="26.0" prefWidth="535.0" promptText="Chemical" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
                                             <HBox.margin>
-                                                <Insets right="15.0" top="5.0" />
+                                                <Insets right="10.0" top="5.0" />
                                             </HBox.margin>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -70,9 +70,9 @@
                                             <font>
                                                 <Font name="System Bold" size="14.0" />
                                             </font></Label>
-                                        <TextField fx:id="txtQuantity" prefHeight="26.0" prefWidth="475.0" promptText="0000000" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
+                                        <TextField fx:id="txtQuantity" prefHeight="26.0" prefWidth="535.0" promptText="0000000" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
                                             <HBox.margin>
-                                                <Insets right="15.0" top="5.0" />
+                                                <Insets right="10.0" top="5.0" />
                                             </HBox.margin>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -88,9 +88,9 @@
                                             <font>
                                                 <Font name="System Bold" size="14.0" />
                                             </font></Label>
-                                        <TextField fx:id="txtConcentration" prefHeight="26.0" prefWidth="475.0" promptText="cm^3" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
+                                        <TextField fx:id="txtConcentration" prefHeight="26.0" prefWidth="535.0" promptText="cm^3" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
                                             <HBox.margin>
-                                                <Insets right="15.0" top="5.0" />
+                                                <Insets right="10.0" top="5.0" />
                                             </HBox.margin>
                                  <font>
                                     <Font name="System Bold" size="12.0" />
@@ -107,9 +107,9 @@
                                             <font>
                                                 <Font name="System Bold" size="14.0" />
                                             </font></Label>
-                              <ComboBox fx:id="ComboBoxSupplier" prefHeight="26.0" prefWidth="475.0">
+                              <ComboBox fx:id="ComboBoxSupplier" prefHeight="26.0" prefWidth="535.0">
                                  <HBox.margin>
-                                    <Insets right="15.0" top="5.0" />
+                                    <Insets right="10.0" top="5.0" />
                                  </HBox.margin>
                               </ComboBox>
                                     </children>
@@ -119,10 +119,7 @@
                         </VBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="114.0" prefWidth="645.0" style="-fx-background-color: #067e7f;">
                             <children>
-                                <Button fx:id="btnGenarateReport" mnemonicParsing="false" onAction="#btnGenarateROnAction"
-                                        prefHeight="40.0" prefWidth="190.0"
-                                        style="-fx-background-color: #2150ac; -fx-text-fill: white;"
-                                        text="Genarate Report">
+                                <Button fx:id="btnGenarateReport" mnemonicParsing="false" onAction="#btnGenarateROnAction" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: #2150ac; -fx-text-fill: white;" text="Genarate Report">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>
@@ -136,10 +133,7 @@
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                                <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDeleteOnAction"
-                                        prefHeight="40.0" prefWidth="110.0"
-                                        style="-fx-background-color: #eb3b5a; -fx-text-fill: white;"
-                                        text="Delete">
+                                <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #eb3b5a;" text="Delete" textFill="#f5f5f5">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>

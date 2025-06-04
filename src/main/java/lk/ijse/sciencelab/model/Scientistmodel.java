@@ -10,17 +10,31 @@ public class Scientistmodel {
 
     public static String getText() throws SQLException, ClassNotFoundException {
         ResultSet rs = CrudUtil.execute("select scientist_id from scientist order by scientist_id DESC limit 1");
-        char tableCharactor = 'S';
         if (rs.next()) {
-            String lastId = rs.getString(1);
-            String lastIdNumberString = lastId.substring(1);
-            int lastIdNumber = Integer.parseInt(lastIdNumberString);
-            int nextIdNumber = lastIdNumber + 1;
-            String nextIdString = String.format("Sc%03d", nextIdNumber);
-            return nextIdString;
+            String lastId = rs.getString(1); // Example: "Sc002"
+            System.out.println("Last ID from DB: " + lastId);
+
+            if (lastId.length() > 2 && lastId.startsWith("Sc")) {
+                String lastIdNumberString = lastId.substring(2); // get "002"
+                System.out.println("Extracted number: " + lastIdNumberString);
+
+                try {
+                    int lastIdNumber = Integer.parseInt(lastIdNumberString);
+                    int nextIdNumber = lastIdNumber + 1;
+                    String nextIdString = String.format("Sc%03d", nextIdNumber);
+                    System.out.println("Next ID: " + nextIdString);
+                    return nextIdString;
+                } catch (NumberFormatException e) {
+                    System.err.println("Failed to parse number: " + lastIdNumberString);
+                    throw e; // rethrow or handle
+                }
+            } else {
+                System.err.println("Unexpected ID format: " + lastId);
+            }
         }
-        return tableCharactor + "001";
+        return "Sc001";
     }
+
 
     public boolean save(ScientistDto scientist) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("insert into scientist values (?,?,?,?,?)", scientist.getScientistId(), scientist.getScientistName(), scientist.getContact(), scientist.getEmployee(), scientist.getSpecialization());

@@ -54,14 +54,6 @@ public class Equipmentmodel {
 
     }
 
-    public ObservableList getAllProjectID() throws SQLException, ClassNotFoundException {
-        ResultSet rs = CrudUtil.execute("select supplier_Id from supplier");
-        ObservableList<String> equipmentArrayList = FXCollections.observableArrayList();
-        while (rs.next()) {
-            equipmentArrayList.add(rs.getString("supplier_Id"));
-        }
-        return  equipmentArrayList;
 
-    }
 }
 

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.sciencelab.User;
 
@@ -13,8 +14,8 @@ import java.io.IOException;
 public class LoginPageController {
     public PasswordField txtPassword;
     public TextField txtUsername;
-    public Button btnLogin;
-    public Label lblError;
+    public Button btnLogin1;
+    public AnchorPane ancLogin;
     private User user = new User("1", "1");
 
     public void loginOnAction(ActionEvent actionEvent) {
@@ -48,6 +49,26 @@ public class LoginPageController {
     public void txtUsernameOnAction(ActionEvent actionEvent) {
         txtPassword.requestFocus();
 
+    }
+
+    private void nevigateTo(String s) {
+        try {
+            ancLogin.getChildren().clear();
+            AnchorPane pane = FXMLLoader.load(getClass().getResource(s));
+
+            pane.prefWidthProperty().bind(ancLogin.widthProperty());
+            pane.prefHeightProperty().bind(ancLogin.heightProperty());
+
+            ancLogin.getChildren().add(pane);
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Page Not Found!").show();
+            e.printStackTrace();
+
+        }
+    }
+
+    public void btnForgotPassword(ActionEvent actionEvent) {
+        nevigateTo("/view/ForgotPassword.fxml");
     }
 }
 

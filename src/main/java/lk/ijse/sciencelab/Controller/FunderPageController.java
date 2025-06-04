@@ -32,11 +32,12 @@ public class FunderPageController {
     public Label lblFunderID;
     public Button btnUpdate;
     public ComboBox<String> ComboBoxProject;
+    public ComboBox  <String> ComboBoxOrganization;
 
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         setnextID();
-        ComboBoxProject.setItems(Fmodel.getAllProjectID());
+            ComboBoxOrganization.setItems(FXCollections.observableArrayList( "National Science Laboratory","Advanced Research Institute","Global Science Collaborative","Center for Scientific Excellence","Institute of Experimental Science","ChemX Research Center (Chemistry)"));
         loadtable();
     }
 
@@ -49,7 +50,7 @@ public class FunderPageController {
         FunderIDclm.setCellValueFactory(new PropertyValueFactory<>("funderId"));
         FunderNameclm.setCellValueFactory(new PropertyValueFactory<>("funderName"));
         Amountclm.setCellValueFactory(new PropertyValueFactory<>("amount"));
-            Projectclm.setCellValueFactory(new PropertyValueFactory<>("project"));
+        Projectclm.setCellValueFactory(new PropertyValueFactory<>("project"));
         Organizationclm.setCellValueFactory(new PropertyValueFactory<>("organization"));
     }
 
@@ -71,7 +72,7 @@ public class FunderPageController {
             txtFunderName.setText(selectedItem.getFunderName());
             txtAmount.setText(String.valueOf(selectedItem.getAmount()));
             ComboBoxProject.setValue(selectedItem.getProject());
-            txtOrganization.setText(selectedItem.getOrganization());
+            ComboBoxOrganization.setValue(selectedItem.getOrganization());
             // save button disable
             btnSave.setDisable(true);
             // update, delete button enable
@@ -84,7 +85,7 @@ public class FunderPageController {
         String funderName = txtFunderName.getText();
         Double amount = Double. valueOf(txtAmount.getText());
         String project = (String) ComboBoxProject.getValue();
-        String organization = txtOrganization.getText();
+        String organization = ComboBoxOrganization.getValue();
 
         FunderDto funder = new FunderDto(funderId, funderName, amount, project, organization);
         boolean issave = Fmodel.save(funder);
@@ -107,7 +108,7 @@ public class FunderPageController {
         String funderName = txtFunderName.getText();
         Double amount = Double. valueOf(txtAmount.getText());
         String project = (String) ComboBoxProject.getValue();
-        String organization = txtOrganization.getText();
+        String organization = ComboBoxOrganization.getValue();
 
         FunderDto funder = new FunderDto(funderId, funderName, amount, project, organization);
         boolean isupdate = Fmodel.update(funder);

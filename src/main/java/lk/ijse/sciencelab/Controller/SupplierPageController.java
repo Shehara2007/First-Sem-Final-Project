@@ -38,10 +38,14 @@ public class SupplierPageController {
     public Button btnDelete;
     public Button btnGenarateReport;
     public HBox btnUpdate;
+    public ComboBox <String>ComboBoxTypeOfSupplier;
+    public ComboBox <String> ComboBoxEquipment;
 
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         setnextID();
+        ComboBoxEquipment.setItems(FXCollections.observableArrayList( "Measuring Instruments","Glassware","Heating Equipment","Microscopes","Safety Equipment","Mixing and Stirring","Storage Equipment","Analytical Instruments","Miscellaneous","pH Meter","Wash Bottle","Wash Bottle","Lab Timer / Stopwatch","Anemometer"));
+        ComboBoxTypeOfSupplier.setItems(FXCollections.observableArrayList("Chemical Supplier ", "Equipment Supplier"));
         loadtable();
     }
 
@@ -76,8 +80,8 @@ public class SupplierPageController {
                 lblSupplierID.setText(selectedItem.getSupplierId());
                 txtSupplierName.setText(selectedItem.getSupplierName());
                 txtContact.setText(selectedItem.getContact());
-                txtEquipment.setText(selectedItem.getEquipment());
-                txtTypeOfSupplier.setText(selectedItem.getTypeOfSupplier());
+                ComboBoxEquipment.setValue(selectedItem.getEquipment());
+                ComboBoxTypeOfSupplier.setValue(selectedItem.getTypeOfSupplier());
                 // save button disable
                 btnSave.setDisable(true);
                 // update, delete button enable
@@ -89,8 +93,8 @@ public class SupplierPageController {
                 String supplierId = lblSupplierID.getText();
                 String supplierName = txtSupplierName.getText();
                 String contact = txtContact.getText();
-                String equipment = txtEquipment.getText();
-                String typeOfSupplier = txtTypeOfSupplier.getText();
+                String equipment = ComboBoxEquipment.getValue();
+                String typeOfSupplier = ComboBoxTypeOfSupplier.getValue();
 
                 SupplierDto supplier = new SupplierDto(supplierId, supplierName, contact, equipment, typeOfSupplier);
                 boolean issave = Smodel.save(supplier);
@@ -112,8 +116,8 @@ public class SupplierPageController {
                 String supplierId = lblSupplierID.getText();
                 String supplierName = txtSupplierName.getText();
                 String contact = txtContact.getText();
-                String equipment = txtEquipment.getText();
-                String typeOfSupplier = txtTypeOfSupplier.getText();
+                String equipment = ComboBoxEquipment.getValue();
+                String typeOfSupplier = ComboBoxTypeOfSupplier.getValue();
 
                 SupplierDto supplier = new SupplierDto(supplierId, supplierName, contact, equipment, typeOfSupplier);
                 boolean isupdate = Smodel.update(supplier);
