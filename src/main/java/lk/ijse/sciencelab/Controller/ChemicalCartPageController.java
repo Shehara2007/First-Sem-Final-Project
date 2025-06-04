@@ -12,4 +12,5 @@ public class ChemicalCartPageController {
 
     public void btnSearcChemicalhOnAction(ActionEvent actionEvent) {
     }
+
 }
