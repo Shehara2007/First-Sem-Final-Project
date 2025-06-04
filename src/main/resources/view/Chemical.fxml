@@ -14,25 +14,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="669.0" style="-fx-background-color: #27ae60;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sciencelab.Controller.ChemicalPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="669.0" style="-fx-background-color: #27ae60;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sciencelab.Controller.ChemicalPageController">
     <children>
-        <AnchorPane prefHeight="514.0" prefWidth="669.0" style="-fx-background-color: #067e7f;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-0.6000000000000227" AnchorPane.topAnchor="0.0">
+        <AnchorPane prefHeight="514.0" prefWidth="669.0" style="-fx-background-color: #067e7f;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <VBox layoutY="-1.6" prefHeight="644.0" prefWidth="645.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
+                <VBox layoutY="10.0" prefHeight="407.0" prefWidth="669.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                     <children>
-                        <VBox prefHeight="153.0" prefWidth="645.0">
+                        <VBox prefHeight="153.0" prefWidth="600.0">
                             <children>
-                                <HBox prefHeight="35.0" prefWidth="645.0" />
-                                <HBox prefHeight="29.0" prefWidth="645.0">
+                                <HBox prefHeight="35.0" prefWidth="600.0" />
+                                <HBox prefHeight="29.0" prefWidth="600.0">
                                     <children>
-                                        <Label prefHeight="20.0" prefWidth="120.0" text="Chemical ID" textFill="#fffefe">
+                                        <Label prefHeight="29.0" prefWidth="107.0" text="Chemical ID" textFill="#fffefe">
                                             <HBox.margin>
-                                                <Insets left="15.0" top="10.0" />
+                                                <Insets left="10.0" top="5.0" />
                                             </HBox.margin>
                                             <font>
-                                                <Font name="System Bold" size="14.0" />
+                                                <Font name="System Bold" size="12.0" />
                                             </font></Label>
-                              <Label fx:id="lblChemicalID" prefHeight="20.0" prefWidth="535.0" text="1" textFill="WHITE">
+                              <Label fx:id="lblChemicalID" prefHeight="17.0" prefWidth="542.0" text="1" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -42,17 +42,17 @@
                               </Label>
                                     </children>
                                 </HBox>
-                                <HBox layoutX="10.0" layoutY="45.0" prefHeight="31.0" prefWidth="666.0">
+                                <HBox layoutX="10.0" layoutY="45.0" prefHeight="29.0" prefWidth="600.0">
                                     <children>
-                                        <Label prefHeight="26.0" prefWidth="120.0" text="Chemical Name" textFill="#fffefe">
+                                        <Label prefHeight="27.0" prefWidth="107.0" text="Chemical Name" textFill="#fffefe">
                                             <HBox.margin>
-                                                <Insets left="15.0" top="5.0" />
+                                                <Insets left="10.0" top="5.0" />
                                             </HBox.margin>
                                             <font>
-                                                <Font name="System Bold" size="14.0" />
+                                                <Font name="System Bold" size="12.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="txtChemicalName" minWidth="-Infinity" prefHeight="26.0" prefWidth="535.0" promptText="Chemical" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
+                                        <TextField fx:id="txtChemicalName" prefHeight="27.0" prefWidth="535.0" promptText="Chemical" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
                                             <HBox.margin>
                                                 <Insets right="10.0" top="5.0" />
                                             </HBox.margin>
@@ -61,16 +61,16 @@
                                  </font></TextField>
                                     </children>
                                 </HBox>
-                                <HBox layoutX="10.0" layoutY="74.0" prefHeight="29.0" prefWidth="645.0">
+                                <HBox layoutX="10.0" layoutY="74.0" prefHeight="29.0" prefWidth="600.0">
                                     <children>
-                                        <Label prefHeight="26.0" prefWidth="120.0" text="Quantity" textFill="#f5f4f4">
+                                        <Label prefHeight="29.0" prefWidth="107.0" text="Quantity" textFill="#f5f4f4">
                                             <HBox.margin>
-                                                <Insets left="15.0" top="5.0" />
+                                                <Insets left="10.0" top="5.0" />
                                             </HBox.margin>
                                             <font>
-                                                <Font name="System Bold" size="14.0" />
+                                                <Font name="System Bold" size="12.0" />
                                             </font></Label>
-                                        <TextField fx:id="txtQuantity" prefHeight="26.0" prefWidth="535.0" promptText="0000000" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
+                                        <TextField fx:id="txtQuantity" prefHeight="25.0" prefWidth="535.0" promptText="0000000" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
                                             <HBox.margin>
                                                 <Insets right="10.0" top="5.0" />
                                             </HBox.margin>
@@ -79,16 +79,16 @@
                                  </font></TextField>
                                     </children>
                                 </HBox>
-                                <HBox layoutX="10.0" layoutY="103.0" prefHeight="29.0" prefWidth="645.0">
+                                <HBox layoutX="10.0" layoutY="103.0" prefHeight="29.0" prefWidth="600.0">
                                     <children>
-                                        <Label prefHeight="26.0" prefWidth="120.0" text="Concentration" textFill="#fff9f9">
+                                        <Label prefHeight="29.0" prefWidth="107.0" text="Concentration" textFill="#fff9f9">
                                             <HBox.margin>
-                                                <Insets left="15.0" top="5.0" />
+                                                <Insets left="10.0" top="5.0" />
                                             </HBox.margin>
                                             <font>
-                                                <Font name="System Bold" size="14.0" />
+                                                <Font name="System Bold" size="12.0" />
                                             </font></Label>
-                                        <TextField fx:id="txtConcentration" prefHeight="26.0" prefWidth="535.0" promptText="cm^3" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
+                                        <TextField fx:id="txtConcentration" prefHeight="25.0" prefWidth="535.0" promptText="cm^3" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
                                             <HBox.margin>
                                                 <Insets right="10.0" top="5.0" />
                                             </HBox.margin>
@@ -97,93 +97,93 @@
                                  </font></TextField>
                                     </children>
                                 </HBox>
-                                <HBox layoutX="10.0" layoutY="132.0" prefHeight="29.0" prefWidth="645.0" />
-                                <HBox layoutX="10.0" layoutY="137.0" prefHeight="29.0" prefWidth="645.0">
+                                <HBox layoutX="10.0" layoutY="132.0" prefHeight="29.0" prefWidth="600.0" />
+                                <HBox layoutX="10.0" layoutY="137.0" prefHeight="29.0" prefWidth="600.0">
                                     <children>
-                                        <Label prefHeight="26.0" prefWidth="120.0" text="Sup ID" textFill="#ebeaea">
+                                        <Label prefHeight="29.0" prefWidth="107.0" text="Sup ID" textFill="#ebeaea">
                                             <HBox.margin>
-                                                <Insets left="15.0" top="5.0" />
+                                                <Insets left="10.0" top="5.0" />
                                             </HBox.margin>
                                             <font>
-                                                <Font name="System Bold" size="14.0" />
+                                                <Font name="System Bold" size="12.0" />
                                             </font></Label>
-                              <ComboBox fx:id="ComboBoxSupplier" prefHeight="26.0" prefWidth="535.0">
+                              <ComboBox fx:id="ComboBoxSupplier" prefHeight="30.0" prefWidth="538.0">
                                  <HBox.margin>
                                     <Insets right="10.0" top="5.0" />
                                  </HBox.margin>
                               </ComboBox>
                                     </children>
                                 </HBox>
-                                <HBox layoutX="10.0" layoutY="157.0" prefHeight="29.0" prefWidth="645.0" />
+                                <HBox layoutX="10.0" layoutY="157.0" prefHeight="29.0" prefWidth="600.0" />
                             </children>
                         </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="114.0" prefWidth="645.0" style="-fx-background-color: #067e7f;">
+                        <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="670.0" style="-fx-background-color: #067e7f;">
                             <children>
-                                <Button fx:id="btnGenarateReport" mnemonicParsing="false" onAction="#btnGenarateROnAction" prefHeight="40.0" prefWidth="190.0" style="-fx-background-color: #2150ac; -fx-text-fill: white;" text="Genarate Report">
+                                <Button fx:id="btnGenarateReport" mnemonicParsing="false" onAction="#btnGenarateROnAction" style="-fx-background-color: #3f22b1;" text="Genarate Report" textFill="#f5f4f4">
                                     <font>
-                                        <Font name="System Bold" size="14.0" />
+                                        <Font name="System Bold" size="12.0" />
                                     </font>
                                     <HBox.margin>
-                                        <Insets />
+                                        <Insets left="10.0" />
                                     </HBox.margin>
                            <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Icons/icons8-edit-text-file-50.png" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                                <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #eb3b5a;" text="Delete" textFill="#f5f5f5">
+                                <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnDeleteOnAction" style="-fx-background-color: #eb3b5a;" text="Delete" textFill="#f5f5f5">
                                     <font>
-                                        <Font name="System Bold" size="14.0" />
+                                        <Font name="System Bold" size="12.0" />
                                     </font>
                                     <HBox.margin>
                                         <Insets left="10.0" />
                                     </HBox.margin>
                            <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Icons/icons8-delete-trash-50.png" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                                <Button fx:id="btnUpdate" focusTraversable="false" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #f39c12;" text="Update" textFill="#f2efef">
+                                <Button fx:id="btnUpdate" focusTraversable="false" mnemonicParsing="false" onAction="#btnUpdateOnAction" style="-fx-background-color: #f39c12;" text="Update" textFill="#f2efef">
                                     <font>
-                                        <Font name="System Bold" size="14.0" />
+                                        <Font name="System Bold" size="12.0" />
                                     </font>
                                     <HBox.margin>
                                         <Insets left="10.0" />
                                     </HBox.margin>
                            <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Icons/icons8-update-50.png" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                                <Button fx:id="btnReset" mnemonicParsing="false" onAction="#btnResetOnAction" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #27ae60;" text="Reset" textFill="#f8f6f6">
+                                <Button fx:id="btnReset" mnemonicParsing="false" onAction="#btnResetOnAction" style="-fx-background-color: #27ae60;" text="Reset" textFill="#f8f6f6">
                                     <font>
-                                        <Font name="System Bold" size="14.0" />
+                                        <Font name="System Bold" size="12.0" />
                                     </font>
                                     <HBox.margin>
                                         <Insets left="10.0" />
                                     </HBox.margin>
                            <graphic>
-                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Icons/icons8-reset-50.png" />
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                                <Button mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #d35400;" text="Save" textFill="#f8f3f3">
+                                <Button mnemonicParsing="false" onAction="#btnSaveOnAction" style="-fx-background-color: #d35400;" text="Save" textFill="#f8f3f3">
                                     <font>
-                                        <Font name="System Bold" size="14.0" />
+                                        <Font name="System Bold" size="12.0" />
                                     </font>
                                     <HBox.margin>
                                         <Insets left="10.0" />
                                     </HBox.margin>
                            <graphic>
-                              <ImageView fx:id="btnSave" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="btnSave" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Icons/icons8-save-48.png" />
                                  </image>
@@ -191,7 +191,7 @@
                            </graphic></Button>
                             </children>
                         </HBox>
-                        <TableView fx:id="tblChemical" onMouseClicked="#tableClickOnAction" prefHeight="151.0" prefWidth="645.0" style="-fx-background-color: #f5f6fa; -fx-background-color: #a2b7be;" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="tblChemical" prefHeight="151.0" prefWidth="649.0" style="-fx-background-color: #f5f6fa; -fx-background-color: #a2b7be;" VBox.vgrow="ALWAYS">
                             <columns>
                                 <TableColumn fx:id="ChemicalIDclm" prefWidth="75.0" text="Chemical ID" />
                                 <TableColumn fx:id="ChemicalNameclm" prefWidth="75.0" text="Chemical Name" />
@@ -206,15 +206,12 @@
                                 <Insets />
                             </opaqueInsets>
                             <VBox.margin>
-                                <Insets />
+                                <Insets left="10.0" right="10.0" />
                             </VBox.margin>
                         </TableView>
                     </children>
                 </VBox>
             </children>
-         <padding>
-            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-         </padding>
         </AnchorPane>
     </children>
 </AnchorPane>

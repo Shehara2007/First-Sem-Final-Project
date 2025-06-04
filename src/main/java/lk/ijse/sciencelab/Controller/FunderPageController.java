@@ -12,7 +12,6 @@ import lk.ijse.sciencelab.model.Fundermodel;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Optional;
 
 public class FunderPageController {
     private final Fundermodel Fmodel = new Fundermodel();
@@ -27,17 +26,17 @@ public class FunderPageController {
     public TableColumn Amountclm;
     public TableColumn Organizationclm;
     public TextField txtOrganization;
+    public TextField txtProject;
     public TextField txtAmount;
     public TextField txtFunderName;
     public Label lblFunderID;
     public Button btnUpdate;
     public ComboBox<String> ComboBoxProject;
-    public ComboBox  <String> ComboBoxOrganization;
 
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         setnextID();
-            ComboBoxOrganization.setItems(FXCollections.observableArrayList( "National Science Laboratory","Advanced Research Institute","Global Science Collaborative","Center for Scientific Excellence","Institute of Experimental Science","ChemX Research Center (Chemistry)"));
+        ComboBoxProject.setItems(Fmodel.getAllProjectID());
         loadtable();
     }
 
@@ -50,7 +49,7 @@ public class FunderPageController {
         FunderIDclm.setCellValueFactory(new PropertyValueFactory<>("funderId"));
         FunderNameclm.setCellValueFactory(new PropertyValueFactory<>("funderName"));
         Amountclm.setCellValueFactory(new PropertyValueFactory<>("amount"));
-        Projectclm.setCellValueFactory(new PropertyValueFactory<>("project"));
+            Projectclm.setCellValueFactory(new PropertyValueFactory<>("project"));
         Organizationclm.setCellValueFactory(new PropertyValueFactory<>("organization"));
     }
 
@@ -72,7 +71,7 @@ public class FunderPageController {
             txtFunderName.setText(selectedItem.getFunderName());
             txtAmount.setText(String.valueOf(selectedItem.getAmount()));
             ComboBoxProject.setValue(selectedItem.getProject());
-            ComboBoxOrganization.setValue(selectedItem.getOrganization());
+            txtOrganization.setText(selectedItem.getOrganization());
             // save button disable
             btnSave.setDisable(true);
             // update, delete button enable
@@ -85,7 +84,7 @@ public class FunderPageController {
         String funderName = txtFunderName.getText();
         Double amount = Double. valueOf(txtAmount.getText());
         String project = (String) ComboBoxProject.getValue();
-        String organization = ComboBoxOrganization.getValue();
+        String organization = txtOrganization.getText();
 
         FunderDto funder = new FunderDto(funderId, funderName, amount, project, organization);
         boolean issave = Fmodel.save(funder);
@@ -108,7 +107,7 @@ public class FunderPageController {
         String funderName = txtFunderName.getText();
         Double amount = Double. valueOf(txtAmount.getText());
         String project = (String) ComboBoxProject.getValue();
-        String organization = ComboBoxOrganization.getValue();
+        String organization = txtOrganization.getText();
 
         FunderDto funder = new FunderDto(funderId, funderName, amount, project, organization);
         boolean isupdate = Fmodel.update(funder);
@@ -121,39 +120,18 @@ public class FunderPageController {
         }
     }
 
-    public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+    public void btnDeleteOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String funderID = lblFunderID.getText();
+        boolean isDelete = Fmodel.DeleteFunder(funderID);
 
-        // Check if a funder is selected
-        if (funderID == null || funderID.trim().isEmpty()) {
-            new Alert(Alert.AlertType.WARNING, "Please select a funder to delete.", ButtonType.OK).show();
-            return;
-        }
-
-        // Show confirmation alert
-        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmAlert.setTitle("Delete Confirmation");
-        confirmAlert.setHeaderText("Are you sure?");
-        confirmAlert.setContentText("Do you really want to delete this funder? This action cannot be undone.");
-
-        Optional<ButtonType> result = confirmAlert.showAndWait();
-
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-            // If confirmed, delete
-            boolean isDelete = Fmodel.DeleteFunder(funderID);
-
-            if (isDelete) {
-                new Alert(Alert.AlertType.INFORMATION, "Funder Deleted", ButtonType.OK).show();
-                loadtable();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Funder Not Deleted", ButtonType.OK).show();
-            }
+        if (isDelete) {
+            new Alert(Alert.AlertType.INFORMATION, "Funder Deleted", ButtonType.OK).show();
+            loadtable();
         } else {
-            // If cancelled
-            new Alert(Alert.AlertType.INFORMATION, "Deletion Cancelled", ButtonType.OK).show();
+            new Alert(Alert.AlertType.ERROR, "Funder Not Deleted", ButtonType.OK).show();
         }
-    }
 
+    }
 
     public void btnGenarateROnAction (ActionEvent actionEvent){
     }
