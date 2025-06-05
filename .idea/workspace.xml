@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52b66d72-f220-448d-a84b-40bd1ee3fecf" name="Changes" comment="Add email send and remove lombok">
+    <list default="true" id="52b66d72-f220-448d-a84b-40bd1ee3fecf" name="Changes" comment="Add dashboard fxml">
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/util/cartTm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/DashBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/DashBoard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/Controller/EquipmentCartPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/Controller/EquipmentCartPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/Controller/ProjectPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/Controller/ProjectPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/Equipment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/Equipment.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +140,7 @@
       <workItem from="1745156268442" duration="1608000" />
       <workItem from="1745206105481" duration="6000" />
       <workItem from="1745301456234" duration="3621000" />
-      <workItem from="1749099206898" duration="8311000" />
+      <workItem from="1749099206898" duration="12431000" />
     </task>
     <task id="LOCAL-00001" summary="delete one file">
       <option name="closed" value="true" />
@@ -169,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749113822405</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add dashboard fxml">
+      <option name="closed" value="true" />
+      <created>1749115088676</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1749115088678</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +203,8 @@
     <MESSAGE value="delete one file" />
     <MESSAGE value="delete files" />
     <MESSAGE value="Add email send and remove lombok" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add email send and remove lombok" />
+    <MESSAGE value="Add dashboard fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add dashboard fxml" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

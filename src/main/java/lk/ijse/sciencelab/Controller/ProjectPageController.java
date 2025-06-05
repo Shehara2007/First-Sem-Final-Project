@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -17,20 +18,44 @@ import java.util.ArrayList;
 
 public class ProjectPageController {
     private final Projectmodel Pmodel = new Projectmodel();
-    public Label lblProjectID;
-    public DatePicker txtStartDate;
-    public DatePicker txtEndDate;
-    public ImageView btnDelete;
-    public ImageView btnUpdate;
-    public Button btnReset;
-    public Button btnSave;
-    public Button btnGenarateReport;
-    public ComboBox <String> ComboBoxItems;
-    public AnchorPane ancItemUI;
-    public TableColumn ItemIDclm;
-    public TableColumn Nameclm;
-    public TableColumn Quantityclm;
-    public TableColumn Actionclm;
+    @FXML
+    private Label lblProjectID;
+
+    @FXML
+    private TextField txtTitle;
+
+    @FXML
+    private DatePicker txtStartDate;
+
+    @FXML
+    private TextField txtFundingAmount;
+
+    @FXML
+    private Label txtScientistID;
+
+    @FXML
+    private DatePicker txtEndDate;
+
+    @FXML
+    private TextField txtDescription;
+
+    @FXML
+    private ComboBox<?> ComboBoxItems;
+
+    @FXML
+    private AnchorPane ancItemUI;
+
+    @FXML
+    private TableColumn<?, ?> ItemIDclm;
+
+    @FXML
+    private TableColumn<?, ?> Nameclm;
+
+    @FXML
+    private TableColumn<?, ?> Quantityclm;
+
+    @FXML
+    private TableColumn<?, ?> Actionclm;
 
     @FXML
     private TableView<ProjectDto> tblProject;
@@ -39,6 +64,7 @@ public class ProjectPageController {
         setnextID();
         ComboBoxItems.setItems(FXCollections.observableArrayList("Equipment","Chemical"));
         loadtable();
+        setCellValueFactory();
     }
 
     private void loadtable() throws SQLException, ClassNotFoundException {
@@ -80,7 +106,14 @@ public class ProjectPageController {
             nevigateTo("/view/EquipmentCartPage.fxml");
         } else if (ComboBoxItems.getSelectionModel().getSelectedItem().equals( "Chemical")) {
             nevigateTo("/view/ChemicalCartPage.fxml");
-        }    }
+        }
+    }
+
+    private void setCellValueFactory() {
+        ItemIDclm.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colContactNumber.setCellValueFactory(new PropertyValueFactory<>("factoryEmployeeNumber"));
+
+    }
 
     public void AddItemOnAction(ActionEvent actionEvent) {
     }
