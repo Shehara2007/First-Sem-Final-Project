@@ -3,12 +3,19 @@ package lk.ijse.sciencelab.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.sciencelab.Dto.EmployeeDto;
 import lk.ijse.sciencelab.model.Employeemodel;
+
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -142,4 +149,20 @@ public class EmployeePageController {
     public void btnGenarateROnAction (ActionEvent actionEvent){
     }
 
+    public void tableClickOnAction(MouseEvent mouseEvent) {
+    }
+
+    public void btnEmailFrom(ActionEvent event) {
+            Scene scene = null;
+            try {
+                scene = new Scene(FXMLLoader.load(this.getClass().getResource("/view/EmailSend_form.fxml")));
+            } catch (IOException e) {
+                new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+
+            }
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.show();
+        }
 }
