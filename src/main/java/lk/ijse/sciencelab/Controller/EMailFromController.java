@@ -28,8 +28,8 @@ public class EMailFromController {
     private AnchorPane EmailFrom;
 
     private void sendMail(String to, String subject, String text) {
-        final String username = "";
-        final String apppassword = "";
+        final String username = "madushapullaperuma15@gmail.com";
+        final String apppassword = "gsoqqklsvvhbddhm";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
