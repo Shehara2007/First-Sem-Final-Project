@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="721.0" prefWidth="639.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sciencelab.Controller.DashBordController">
+<AnchorPane prefHeight="721.0" prefWidth="639.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sciencelab.Controller.DashBordController">
    <children>
       <AnchorPane fx:id="ancDash" prefHeight="616.0" prefWidth="272.0" style="-fx-background-color: #067e7f;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -175,6 +175,84 @@
 
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="ancPanel" layoutX="276.8" layoutY="165.0" prefHeight="721.0" prefWidth="365.0" style="-fx-background-color: #89bfb6;" stylesheets="@../CSS/test.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="277.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane fx:id="ancPanel" layoutX="276.8" layoutY="165.0" prefHeight="721.0" prefWidth="473.0" style="-fx-background-color: #89bfb6;" stylesheets="@../CSS/test.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="277.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="61.0" layoutY="77.0" prefHeight="120.0" prefWidth="246.0" style="-fx-background-color: #93FFE8; -fx-background-radius: 30;">
+               <children>
+                  <ImageView fx:id="orderImageView1" fitHeight="66.0" fitWidth="76.0" layoutX="14.0" layoutY="37.0">
+                     <image>
+                        <Image url="@../../../../../../Desktop/Meal_Master_Canteen%201%20New/Meal_Master_Canteen%201/Meal_Master_Canteen/src/main/resources/icon/icons8-orderDTO-64.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="labelOrderCount" layoutX="123.0" layoutY="7.0" prefHeight="95.0" prefWidth="100.0" textAlignment="RIGHT">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelOrder" layoutX="24.0" layoutY="7.0" prefHeight="20.0" prefWidth="57.0" text="Orders">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="61.0" layoutY="224.0" prefHeight="120.0" prefWidth="246.0" style="-fx-background-color: #93FFE8; -fx-background-radius: 30;">
+               <children>
+                  <ImageView fitHeight="66.0" fitWidth="76.0" layoutX="23.0" layoutY="40.0">
+                     <image>
+                        <Image url="@../../../../../../Desktop/Meal_Master_Canteen%201%20New/Meal_Master_Canteen%201/Meal_Master_Canteen/src/main/resources/icon/icons8-mealDTO-50.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="labelMeal" layoutX="33.0" layoutY="6.0" prefHeight="27.0" prefWidth="50.0" text="Meals">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelMealCount" layoutX="123.0" layoutY="13.0" prefHeight="95.0" prefWidth="100.0" textAlignment="RIGHT">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="61.0" layoutY="359.0" prefHeight="120.0" prefWidth="246.0" style="-fx-background-color: #93FFE8; -fx-background-radius: 30;">
+               <children>
+                  <ImageView fx:id="supplierImageView1" fitHeight="66.0" fitWidth="76.0" layoutX="28.0" layoutY="34.0">
+                     <image>
+                        <Image url="@../../../../../../Desktop/Meal_Master_Canteen%201%20New/Meal_Master_Canteen%201/Meal_Master_Canteen/src/main/resources/icon/icons8-supplierDTO-32%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="labelSupplier" layoutX="28.0" layoutY="2.0" prefHeight="20.0" prefWidth="76.0" text="Suppliers">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelSuppliersCount" layoutX="123.0" layoutY="13.0" prefHeight="95.0" prefWidth="100.0">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="61.0" layoutY="496.0" prefHeight="120.0" prefWidth="246.0" style="-fx-background-color: #93FFE8; -fx-background-radius: 30;">
+               <children>
+                  <ImageView fx:id="workerImageView1" fitHeight="66.0" fitWidth="76.0" layoutX="24.0" layoutY="33.0">
+                     <image>
+                        <Image url="@../../../../../../Desktop/Meal_Master_Canteen%201%20New/Meal_Master_Canteen%201/Meal_Master_Canteen/src/main/resources/icon/icons8-workerDTO-80.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="labelWorkers" layoutX="34.0" layoutY="7.0" prefHeight="25.0" prefWidth="68.0" text="Workers">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelWorkersCount" layoutX="123.0" layoutY="13.0" prefHeight="95.0" prefWidth="100.0" textAlignment="RIGHT">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
    </children>
 </AnchorPane>
