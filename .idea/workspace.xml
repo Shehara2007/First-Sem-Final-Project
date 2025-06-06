@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52b66d72-f220-448d-a84b-40bd1ee3fecf" name="Changes" comment="Validation and reset button done 2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/Controller/GroupPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/Controller/GroupPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/Controller/LoginPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/Controller/LoginPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/DBConnection/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/DBConnection/DBConnection.java" afterDir="false" />
-    </list>
+    <list default="true" id="52b66d72-f220-448d-a84b-40bd1ee3fecf" name="Changes" comment="error done" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +136,7 @@
       <workItem from="1749099206898" duration="12431000" />
       <workItem from="1749140558562" duration="2118000" />
       <workItem from="1749177651301" duration="12010000" />
-      <workItem from="1749221491914" duration="667000" />
+      <workItem from="1749221491914" duration="1017000" />
     </task>
     <task id="LOCAL-00001" summary="delete one file">
       <option name="closed" value="true" />
@@ -223,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749189322017</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="error done">
+      <option name="closed" value="true" />
+      <created>1749222242183</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1749222242183</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,7 +252,8 @@
     <MESSAGE value="Transaction done" />
     <MESSAGE value="Validation and reset button done" />
     <MESSAGE value="Validation and reset button done 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Validation and reset button done 2" />
+    <MESSAGE value="error done" />
+    <option name="LAST_COMMIT_MESSAGE" value="error done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
