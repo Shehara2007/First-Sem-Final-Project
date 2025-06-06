@@ -137,7 +137,14 @@ ComboBoxScientist.setItems(Gmodel.getAllProjectID());
 
     }
 
-    public void btnResetOnAction (ActionEvent actionEvent){
+    public void btnResetOnAction (ActionEvent actionEvent){clear();
+    }
+    private void clear() {
+        lblGroupID.setText("");
+        txtGroupName.setText("");
+        txtProgress.setText("");
+        txtMember.setText("");
+        txtResearchOfProgress.setText("");
     }
 
     public void btnUpdateOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
@@ -191,7 +198,6 @@ ComboBoxScientist.setItems(Gmodel.getAllProjectID());
             new Alert(Alert.AlertType.INFORMATION, "Deletion Cancelled", ButtonType.OK).show();
         }
     }
-
 
     public void btnGenarateROnAction (ActionEvent actionEvent){
     }

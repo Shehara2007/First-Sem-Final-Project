@@ -107,8 +107,7 @@ if (isValied()){
 
     }
 
-    public void btnResetOnAction (ActionEvent actionEvent){
-        clear();
+    public void btnResetOnAction (ActionEvent actionEvent){clear();
     }
     private void clear() {
         txtScientistName.setText("");

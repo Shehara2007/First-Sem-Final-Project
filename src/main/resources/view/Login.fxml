@@ -47,12 +47,17 @@
                      <Font name="System Bold" size="14.0" />
                   </font>
                </TextField>
-                  <PasswordField fx:id="txtPassword" maxWidth="250.0" prefHeight="35.0" prefWidth="250.0" promptText="Password">
+                  <PasswordField fx:id="txtPassword" maxWidth="250.0" onAction="#PasswordOnAction" prefHeight="35.0" prefWidth="250.0" promptText="Password">
                   <font>
                      <Font name="System Bold" size="14.0" />
                   </font>
                </PasswordField>
-               <Button mnemonicParsing="false" onAction="#btnForgotPassword" prefHeight="28.0" prefWidth="141.0" text="Forgot Password">
+               <PasswordField fx:id="txtEmailAddress" layoutX="172.0" layoutY="197.0" maxWidth="250.0" onAction="#EmailAddressOnAction" prefHeight="35.0" prefWidth="250.0" promptText="Email Address">
+                  <font>
+                     <Font name="System Bold" size="14.0" />
+                  </font>
+               </PasswordField>
+               <Button fx:id="txtForgot" mnemonicParsing="false" onAction="#forgotOnAction" prefHeight="28.0" prefWidth="141.0" text="Forgot Password">
                   <graphic>
                      <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                         <image>

@@ -107,10 +107,13 @@ public class SupplierPageController {
                 }
 
             }
-
-            public void btnResetOnAction (ActionEvent actionEvent){
-            }
-
+    public void btnResetOnAction (ActionEvent actionEvent){clear();
+    }
+    private void clear() {
+        lblSupplierID.setText("");
+        txtSupplierName.setText("");
+        txtContact.setText("");
+    }
             public void btnUpdateOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
                 String supplierId = lblSupplierID.getText();

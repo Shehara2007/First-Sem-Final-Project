@@ -113,8 +113,14 @@ public class EmployeePageController {
   }
 
     }
-
-    public void btnResetOnAction (ActionEvent actionEvent){
+    public void btnResetOnAction (ActionEvent actionEvent){clear();
+    }
+    private void clear() {
+        lblEmployeeID.setText("");
+        txtRole.setText("");
+        txtEmployeeName.setText("");
+        txtContact.setText("");
+        txtEmail.setText("");
     }
 
     public void btnUpdateOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {

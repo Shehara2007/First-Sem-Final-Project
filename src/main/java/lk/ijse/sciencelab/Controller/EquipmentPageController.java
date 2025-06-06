@@ -68,6 +68,14 @@ public class EquipmentPageController{
         tblEquipment.setItems(equipmentObservableList);
     }
 
+    public void btnResetOnAction (ActionEvent actionEvent){
+        clear();
+    }
+    private void clear() {
+        lblEquipmentID.setText("");
+        txtQuantity.setText("");
+    }
+
 
     public void btnSaveOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 if (isValied()){
@@ -88,9 +96,6 @@ if (isValied()){
     }
 }
 
-    }
-
-    public void btnResetOnAction (ActionEvent actionEvent){
     }
 
     public void btnUpdateOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {

@@ -87,10 +87,13 @@ public class ProgressPageController{
         }
 
     }
-
-    public void btnResetOnAction (ActionEvent actionEvent){
+    public void btnResetOnAction (ActionEvent actionEvent){clear();
     }
+    private void clear() {
+        lblProgressID.setText("");
+        txtstatus.setText("");
 
+    }
     public void btnUpdateOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
 
         String progressID = lblProgressID.getText();

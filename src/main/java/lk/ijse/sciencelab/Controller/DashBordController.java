@@ -3,10 +3,15 @@ package lk.ijse.sciencelab.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import lk.ijse.sciencelab.Appinitializer;
+
+import java.io.IOException;
 
 public class DashBordController {
 
@@ -101,5 +106,14 @@ public class DashBordController {
 
         }
     }
-}
+
+    public void BacktologinOnAction(ActionEvent actionEvent) throws IOException {
+            FXMLLoader fxmlLoader = new FXMLLoader(Appinitializer.class.getResource("/view/Login.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) lblScienceLab.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
+    }
+
 

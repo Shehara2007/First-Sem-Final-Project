@@ -102,8 +102,13 @@ if (isValied()){
 }
 
     }
-
-    public void btnResetOnAction (ActionEvent actionEvent){
+    public void btnResetOnAction (ActionEvent actionEvent){clear();
+    }
+    private void clear() {
+        lblFunderID.setText("");
+        txtFunderName.setText("");
+        txtAmount.setText("");
+        txtOrganization.setText("");
     }
 
     public void btnUpdateOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {

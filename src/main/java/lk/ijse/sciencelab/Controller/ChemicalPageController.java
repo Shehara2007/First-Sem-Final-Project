@@ -125,8 +125,13 @@ public class ChemicalPageController {
         }
     }
 
-
-    public void btnResetOnAction (ActionEvent actionEvent){
+    public void btnResetOnAction (ActionEvent actionEvent){clear();
+    }
+    private void clear() {
+        lblChemicalID.setText("");
+        txtChemicalName.setText("");
+        txtQuantity.setText("");
+        txtConcentration.setText("");
     }
 
     public void btnUpdateOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
