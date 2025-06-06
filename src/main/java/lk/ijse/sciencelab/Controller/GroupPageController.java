@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.sciencelab.Dto.GroupDto;
 import lk.ijse.sciencelab.model.Groupmodel;
@@ -200,6 +201,25 @@ ComboBoxScientist.setItems(Gmodel.getAllProjectID());
     }
 
     public void btnGenarateROnAction (ActionEvent actionEvent){
+    }
+    @FXML
+    void txtGroupNameOnKeyRelese(KeyEvent event) {
+
+    }
+
+    @FXML
+    void txtMemberOnKeyRelese(KeyEvent event) {
+
+    }
+
+    @FXML
+    void txtProgressOnKeyRelese(KeyEvent event) {
+
+    }
+
+    @FXML
+    void txtResearchOfProgressOnKeyRelese(KeyEvent event) {
+
     }
 
 }

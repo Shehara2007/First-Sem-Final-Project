@@ -28,11 +28,11 @@ public class LoginPageController {
     private User user = new User("1", "1");
 
     public void loginOnAction(ActionEvent actionEvent) {
-        String email = txtEmailAddress.getText();
+//        String email = txtEmailAddress.getText();
         String username = txtUsername.getText();
         String password = txtPassword.getText();
 
-        if (email.isEmpty() || username.isEmpty() || password.isEmpty()) {
+        if ( username.isEmpty() || password.isEmpty()) {
             showAlert("Please fill in all fields.", Alert.AlertType.ERROR);
             return;
         }
