@@ -3,15 +3,18 @@ package lk.ijse.sciencelab.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.sciencelab.Dto.ChemicalDto;
 import lk.ijse.sciencelab.Dto.GroupDto;
 import lk.ijse.sciencelab.Dto.ProjectDto;
 import lk.ijse.sciencelab.model.Chemicalmodel;
 import lk.ijse.sciencelab.model.Projectmodel;
+import lk.ijse.sciencelab.util.Regex;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -163,4 +166,13 @@ public class ChemicalPageController {
             btnDelete.setDisable(false);
         }
     }
+//    private boolean isValied() {
+//        if (!Regex.setTextColor(lk.ijse.sciencelab.util.TextField.NAME,) return false;
+//        if (!Regex.setTextColor(lk.ijse.CanteenDemo.Util.TextField.CONTACT,txtContactNumber)) return false;
+//        return true;
+//    }
+//    @FXML
+//    void txtChemicalnameKeyreleased(KeyEvent event) {
+//        Regex.setTextColor(lk.ijse.sciencelab.util.TextField.NAME.);
+//    }
 }

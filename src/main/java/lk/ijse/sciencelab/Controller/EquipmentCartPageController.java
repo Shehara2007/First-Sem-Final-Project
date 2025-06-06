@@ -1,11 +1,14 @@
 package lk.ijse.sciencelab.Controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.util.Duration;
 import lk.ijse.sciencelab.DBConnection.DBConnection;
 
 import java.sql.*;
@@ -22,6 +25,14 @@ public class EquipmentCartPageController {
 
     public void initialize() {
         loadEquipmentIDs();
+
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+            // Your repeated logic
+            quantity = txtQuantity.getText();
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+
     }
 
     private void loadEquipmentIDs() {
@@ -70,9 +81,9 @@ public class EquipmentCartPageController {
 
             // If found, set the name to the label
             if (resultSet.next()) {
-                String name = resultSet.getString("equipment_name");
-                String id = resultSet.getString("equipment_id");
-                String qty = resultSet.getString("quantity");
+                name = resultSet.getString("equipment_name");
+                id = resultSet.getString("equipment_id");
+                quantity = resultSet.getString("quantity");
                 lblName.setText(name);
             } else {
                 lblName.setText("Equipment not found.");

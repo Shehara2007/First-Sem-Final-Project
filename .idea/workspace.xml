@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52b66d72-f220-448d-a84b-40bd1ee3fecf" name="Changes" comment="Add dashboard fxml">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/util/cartTm.java" afterDir="false" />
+    <list default="true" id="52b66d72-f220-448d-a84b-40bd1ee3fecf" name="Changes" comment="Add to cart done">
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/util/Regex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/util/TextField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Icons/WhatsApp Image 2025-06-06 at 08.17.23_49bf5a98.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/Controller/ChemicalPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/Controller/ChemicalPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/Controller/EquipmentCartPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/Controller/EquipmentCartPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/Controller/ProjectPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/Controller/ProjectPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/util/cartTm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/sciencelab/util/cartTm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/Chemical.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/Chemical.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/Equipment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/Equipment.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,9 +35,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -58,7 +63,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ASUS/IdeaProjects/First-Sem-Final-Project/src/main/resources/view",
+    "last_opened_file_path": "C:/Users/ASUS/IdeaProjects/First-Sem-Final-Project/src/main/resources/Icons",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -78,9 +83,10 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\IdeaProjects\First-Sem-Final-Project\src\main\resources\Icons" />
+      <recent name="C:\Users\ASUS\IdeaProjects\First-Sem-Final-Project\src\main\java\lk\ijse\sciencelab\util" />
       <recent name="C:\Users\ASUS\IdeaProjects\First-Sem-Final-Project\src\main\resources\view" />
       <recent name="C:\Users\ASUS\IdeaProjects\First-Sem-Final-Project\src\main\java" />
-      <recent name="C:\Users\ASUS\IdeaProjects\First-Sem-Final-Project\src\main\resources\Icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\K.T.Shehara malithi\ScienceLab\src\main\resources\view" />
@@ -141,6 +147,8 @@
       <workItem from="1745206105481" duration="6000" />
       <workItem from="1745301456234" duration="3621000" />
       <workItem from="1749099206898" duration="12431000" />
+      <workItem from="1749140558562" duration="2118000" />
+      <workItem from="1749177651301" duration="650000" />
     </task>
     <task id="LOCAL-00001" summary="delete one file">
       <option name="closed" value="true" />
@@ -182,7 +190,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749115088678</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add to cart done">
+      <option name="closed" value="true" />
+      <created>1749139760767</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1749139760767</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add to cart done">
+      <option name="closed" value="true" />
+      <created>1749139771179</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1749139771179</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,7 +228,8 @@
     <MESSAGE value="delete files" />
     <MESSAGE value="Add email send and remove lombok" />
     <MESSAGE value="Add dashboard fxml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add dashboard fxml" />
+    <MESSAGE value="Add to cart done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add to cart done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
