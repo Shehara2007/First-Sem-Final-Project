@@ -3,12 +3,15 @@ package lk.ijse.sciencelab.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.sciencelab.Dto.EquipmentDto;
 import lk.ijse.sciencelab.model.Equipmentmodel;
 import lk.ijse.sciencelab.model.Suppliermodel;
+import lk.ijse.sciencelab.util.Regex;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -67,21 +70,23 @@ public class EquipmentPageController{
 
 
     public void btnSaveOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String equipmentId = lblEquipmentID.getText();
-        String equipmentName = txtEquipmentName.getText();
-        String quantity = txtQuantity.getText();
-        String type = ComboBoxType.getValue();
-        String supplierId = (String) ComboBoxSupplier.getValue();
+if (isValied()){
+    String equipmentId = lblEquipmentID.getText();
+    String equipmentName = txtEquipmentName.getText();
+    String quantity = txtQuantity.getText();
+    String type = ComboBoxType.getValue();
+    String supplierId = (String) ComboBoxSupplier.getValue();
 
-        EquipmentDto equipment = new EquipmentDto(equipmentId, equipmentName, quantity, type, supplierId);
-        boolean issave = Eqmodel.save(equipment);
+    EquipmentDto equipment = new EquipmentDto(equipmentId, equipmentName, quantity, type, supplierId);
+    boolean issave = Eqmodel.save(equipment);
 
-        if (issave) {
-            new Alert(Alert.AlertType.INFORMATION, "Equipment Saved", ButtonType.OK).show();
-            loadtable();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Equipment NotSaved", ButtonType.OK).show();
-        }
+    if (issave) {
+        new Alert(Alert.AlertType.INFORMATION, "Equipment Saved", ButtonType.OK).show();
+        loadtable();
+    } else {
+        new Alert(Alert.AlertType.ERROR, "Equipment NotSaved", ButtonType.OK).show();
+    }
+}
 
     }
 
@@ -159,5 +164,19 @@ public class EquipmentPageController{
             btnUpdate.setDisable(false);
             btnDelete.setDisable(false);
         }
+    }
+    private boolean isValied() {
+        if (!Regex.setTextColor(lk.ijse.sciencelab.util.TextField.NAME,txtEquipmentName)) return false;
+        if (!Regex.setTextColor(lk.ijse.sciencelab.util.TextField.QTY,txtQuantity)) return false;
+        return true;
+    }
+    @FXML
+    void txtEquipmentNameOnKeyRelese(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.sciencelab.util.TextField.NAME,txtEquipmentName);
+    }
+
+    @FXML
+    void txtEquipmentQtyOnKeyRelese(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.sciencelab.util.TextField.QTY,txtQuantity);
     }
 }

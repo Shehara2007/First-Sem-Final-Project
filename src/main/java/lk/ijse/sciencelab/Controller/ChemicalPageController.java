@@ -73,20 +73,22 @@ public class ChemicalPageController {
 
 
     public void btnSaveOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String chemicalId = lblChemicalID.getText();
-        String chemicalName = txtChemicalName.getText();
-        String quantity =(txtQuantity.getText());
-        String concentration = txtConcentration.getText();
-        String supplierId = (String) ComboBoxSupplier.getValue();
+        if (isValied()){
+            String chemicalId = lblChemicalID.getText();
+            String chemicalName = txtChemicalName.getText();
+            String quantity =(txtQuantity.getText());
+            String concentration = txtConcentration.getText();
+            String supplierId = (String) ComboBoxSupplier.getValue();
 
-        ChemicalDto chemical = new ChemicalDto(chemicalId, chemicalName, quantity, concentration, supplierId);
-        boolean issave = Cmodel.save(chemical);
+            ChemicalDto chemical = new ChemicalDto(chemicalId, chemicalName, quantity, concentration, supplierId);
+            boolean issave = Cmodel.save(chemical);
 
-        if (issave) {
-            new Alert(Alert.AlertType.INFORMATION, "Chemical Saved", ButtonType.OK).show();
-            loadtable();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Chemical NotSaved", ButtonType.OK).show();
+            if (issave) {
+                new Alert(Alert.AlertType.INFORMATION, "Chemical Saved", ButtonType.OK).show();
+                loadtable();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Chemical NotSaved", ButtonType.OK).show();
+            }
         }
 
     }
@@ -166,13 +168,18 @@ public class ChemicalPageController {
             btnDelete.setDisable(false);
         }
     }
-//    private boolean isValied() {
-//        if (!Regex.setTextColor(lk.ijse.sciencelab.util.TextField.NAME,) return false;
-//        if (!Regex.setTextColor(lk.ijse.CanteenDemo.Util.TextField.CONTACT,txtContactNumber)) return false;
-//        return true;
-//    }
-//    @FXML
-//    void txtChemicalnameKeyreleased(KeyEvent event) {
-//        Regex.setTextColor(lk.ijse.sciencelab.util.TextField.NAME.);
-//    }
+    private boolean isValied() {
+        if (!Regex.setTextColor(lk.ijse.sciencelab.util.TextField.NAME,txtChemicalName)) return false;
+        if (!Regex.setTextColor(lk.ijse.sciencelab.util.TextField.QTY,txtQuantity)) return false;
+//        if (!Regex.setTextColor(lk.ijse.sciencelab.util.TextField.QTY,txtConcentration)) return false;
+        return true;
+    }
+    @FXML
+    void txtChemicalnameKeyreleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.sciencelab.util.TextField.NAME,txtChemicalName);
+    }
+    @FXML
+    void txtChemicalQtyKeyreleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.sciencelab.util.TextField.QTY,txtQuantity);
+    }
 }

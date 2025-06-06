@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="669.0" style="-fx-background-color: #27ae60;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sciencelab.Controller.FunderPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="669.0" style="-fx-background-color: #27ae60;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sciencelab.Controller.FunderPageController">
     <children>
         <AnchorPane prefHeight="485.0" prefWidth="407.0" style="-fx-background-color: #067e7f;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -38,7 +38,7 @@
                               </Label>
                                     </children>
                                 </HBox>
-                                <HBox layoutX="10.0" layoutY="45.0" prefHeight="29.0" prefWidth="600.0">
+                                <HBox layoutX="10.0" layoutY="45.0" onKeyReleased="#txtFunderNameKeyRelease" prefHeight="29.0" prefWidth="600.0">
                                     <children>
                                         <Label prefHeight="27.0" prefWidth="110.0" text="Funder Name" textFill="#fffefe">
                                             <HBox.margin>
@@ -48,7 +48,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="txtFunderName" prefHeight="26.0" prefWidth="535.0" promptText="Funder" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
+                                        <TextField fx:id="txtFunderName" onKeyReleased="#txtFunderNameKeyRelease" prefHeight="26.0" prefWidth="535.0" promptText="Funder" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
                                             <HBox.margin>
                                                 <Insets right="10.0" top="5.0" />
                                             </HBox.margin>
@@ -66,7 +66,7 @@
                                             <font>
                                                 <Font name="System Bold" size="14.0" />
                                             </font></Label>
-                                        <TextField fx:id="txtAmount" prefHeight="26.0" prefWidth="535.0" promptText="0000000" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
+                                        <TextField fx:id="txtAmount" onKeyReleased="#txtFunderAmountKeyRelease" prefHeight="26.0" prefWidth="535.0" promptText="0000000" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
                                             <HBox.margin>
                                                 <Insets right="10.0" top="5.0" />
                                             </HBox.margin>

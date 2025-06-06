@@ -3,12 +3,15 @@ package lk.ijse.sciencelab.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.sciencelab.Dto.FunderDto;
 import lk.ijse.sciencelab.model.Fundermodel;
+import lk.ijse.sciencelab.util.Regex;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -80,21 +83,23 @@ public class FunderPageController {
         }
     }
     public void btnSaveOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String funderId = lblFunderID.getText();
-        String funderName = txtFunderName.getText();
-        Double amount = Double. valueOf(txtAmount.getText());
-        String project = (String) ComboBoxProject.getValue();
-        String organization = txtOrganization.getText();
+if (isValied()){
+    String funderId = lblFunderID.getText();
+    String funderName = txtFunderName.getText();
+    Double amount = Double. valueOf(txtAmount.getText());
+    String project = (String) ComboBoxProject.getValue();
+    String organization = txtOrganization.getText();
 
-        FunderDto funder = new FunderDto(funderId, funderName, amount, project, organization);
-        boolean issave = Fmodel.save(funder);
+    FunderDto funder = new FunderDto(funderId, funderName, amount, project, organization);
+    boolean issave = Fmodel.save(funder);
 
-        if (issave) {
-            new Alert(Alert.AlertType.INFORMATION, "Funder Saved", ButtonType.OK).show();
-            loadtable();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Funder NotSaved", ButtonType.OK).show();
-        }
+    if (issave) {
+        new Alert(Alert.AlertType.INFORMATION, "Funder Saved", ButtonType.OK).show();
+        loadtable();
+    } else {
+        new Alert(Alert.AlertType.ERROR, "Funder NotSaved", ButtonType.OK).show();
+    }
+}
 
     }
 
@@ -133,7 +138,24 @@ public class FunderPageController {
 
     }
 
+
+
     public void btnGenarateROnAction (ActionEvent actionEvent){
+    }
+    private boolean isValied() {
+        if (!Regex.setTextColor(lk.ijse.sciencelab.util.TextField.NAME,txtFunderName)) return false;
+        if (!Regex.setTextColor(lk.ijse.sciencelab.util.TextField.PRICE,txtAmount)) return false;
+        return true;
+    }
+
+    @FXML
+    void txtFunderAmountKeyRelease(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.sciencelab.util.TextField.PRICE,txtAmount);
+    }
+
+    @FXML
+    void txtFunderNameKeyRelease(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.sciencelab.util.TextField.NAME,txtFunderName);
     }
 
 }

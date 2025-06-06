@@ -3,13 +3,16 @@ package lk.ijse.sciencelab.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.sciencelab.Dto.ProgressDto;
 import lk.ijse.sciencelab.model.Progressmodel;
 import lk.ijse.sciencelab.model.Projectmodel;
+import lk.ijse.sciencelab.util.Regex;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -66,19 +69,21 @@ public class ProgressPageController{
 
 
     public void btnSaveOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String progressID = lblProgressID.getText();
-        String projectID = (String) ComboBoxProject.getValue();
-        String status = (txtstatus.getText());
-        String lastUpdatedDate = String.valueOf(DPLastUpdatedDate.getValue());
+        if (isValied()){
+            String progressID = lblProgressID.getText();
+            String projectID = (String) ComboBoxProject.getValue();
+            String status = (txtstatus.getText());
+            String lastUpdatedDate = String.valueOf(DPLastUpdatedDate.getValue());
 
-        ProgressDto progress = new ProgressDto(progressID, projectID, status, lastUpdatedDate);
-        boolean issave = Pmodel.save(progress);
+            ProgressDto progress = new ProgressDto(progressID, projectID, status, lastUpdatedDate);
+            boolean issave = Pmodel.save(progress);
 
-        if (issave) {
-            new Alert(Alert.AlertType.INFORMATION, " Progress Saved", ButtonType.OK).show();
-            loadtable();
-        } else {
-            new Alert(Alert.AlertType.ERROR, " Progress NotSaved", ButtonType.OK).show();
+            if (issave) {
+                new Alert(Alert.AlertType.INFORMATION, " Progress Saved", ButtonType.OK).show();
+                loadtable();
+            } else {
+                new Alert(Alert.AlertType.ERROR, " Progress NotSaved", ButtonType.OK).show();
+            }
         }
 
     }
@@ -154,5 +159,14 @@ public class ProgressPageController{
             btnUpdate.setDisable(false);
             btnDelete.setDisable(false);
         }
+    }
+
+    private boolean isValied() {
+//        if (!Regex.setTextColor(lk.ijse.sciencelab.util.TextField.,txtstatus)) return false;
+        return true;
+    }
+    @FXML
+    void txtProjectStatusOnKeyRelease(KeyEvent event) {
+//        Regex.setTextColor(lk.ijse.sciencelab.util.TextField.PRICE,txtAmount);
     }
 }

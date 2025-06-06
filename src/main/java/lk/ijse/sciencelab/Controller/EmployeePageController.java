@@ -9,11 +9,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lk.ijse.sciencelab.Dto.EmployeeDto;
 import lk.ijse.sciencelab.model.Employeemodel;
+import lk.ijse.sciencelab.util.Regex;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -90,23 +92,25 @@ public class EmployeePageController {
         }
     }
     public void btnSaveOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String employeeID = lblEmployeeID.getText();
-        String role = txtRole.getText();
-        String employeeName = txtEmployeeName.getText();
-        String contact = txtContact.getText();
-        String groupID = (String) ComboBoxGroupID.getValue();
-        String email = txtEmail.getText();
+  if (isValied()){
+      String employeeID = lblEmployeeID.getText();
+      String role = txtRole.getText();
+      String employeeName = txtEmployeeName.getText();
+      String contact = txtContact.getText();
+      String groupID = (String) ComboBoxGroupID.getValue();
+      String email = txtEmail.getText();
 
 
-        EmployeeDto employee = new EmployeeDto(employeeID, role, employeeName, contact, groupID, email);
-        boolean issave = Emodel.save(employee);
+      EmployeeDto employee = new EmployeeDto(employeeID, role, employeeName, contact, groupID, email);
+      boolean issave = Emodel.save(employee);
 
-        if (issave) {
-            new Alert(Alert.AlertType.INFORMATION, "Employee Saved", ButtonType.OK).show();
-            loadtable();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Employee NotSaved", ButtonType.OK).show();
-        }
+      if (issave) {
+          new Alert(Alert.AlertType.INFORMATION, "Employee Saved", ButtonType.OK).show();
+          loadtable();
+      } else {
+          new Alert(Alert.AlertType.ERROR, "Employee NotSaved", ButtonType.OK).show();
+      }
+  }
 
     }
 
@@ -165,4 +169,25 @@ public class EmployeePageController {
             stage.setScene(scene);
             stage.show();
         }
+
+    private boolean isValied() {
+        if (!Regex.setTextColor(lk.ijse.sciencelab.util.TextField.NAME,txtEmployeeName)) return false;
+        if (!Regex.setTextColor(lk.ijse.sciencelab.util.TextField.CONTACT,txtContact)) return false;
+        if (!Regex.setTextColor(lk.ijse.sciencelab.util.TextField.EMAIL,txtEmail)) return false;
+        return true;
+    }
+    @FXML
+    void txtEmployeeContactKeyreleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.sciencelab.util.TextField.CONTACT,txtContact);
+    }
+
+    @FXML
+    void txtEmployeeEmailKeyreleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.sciencelab.util.TextField.EMAIL,txtEmail);
+    }
+
+    @FXML
+    void txtEmployeeNameKeyreleased(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.sciencelab.util.TextField.NAME,txtEmployeeName);
+    }
 }

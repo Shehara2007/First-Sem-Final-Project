@@ -2,13 +2,17 @@ package lk.ijse.sciencelab.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.sciencelab.Dto.ScientistDto;
 import lk.ijse.sciencelab.model.Employeemodel;
 import lk.ijse.sciencelab.model.Scientistmodel;
+import lk.ijse.sciencelab.util.Regex;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -83,25 +87,32 @@ public class ScientistPageController{
         }
     }
     public void btnSaveOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        String scientistID = lblScientistID.getText();
-        String scientistName = txtScientistName.getText();
-        String contact = txtContact.getText();
-        String employee = ComboBoxEmployee.getValue();
-        String specialization = ComboBoxSpecialization.getValue();
+if (isValied()){
+    String scientistID = lblScientistID.getText();
+    String scientistName = txtScientistName.getText();
+    String contact = txtContact.getText();
+    String employee = ComboBoxEmployee.getValue();
+    String specialization = ComboBoxSpecialization.getValue();
 
-        ScientistDto scientist = new ScientistDto(scientistID, scientistName, contact, employee, specialization);
-        boolean issave = Scmodel.save(scientist);
+    ScientistDto scientist = new ScientistDto(scientistID, scientistName, contact, employee, specialization);
+    boolean issave = Scmodel.save(scientist);
 
-        if (issave) {
-            new Alert(Alert.AlertType.INFORMATION, "Scientist Saved", ButtonType.OK).show();
-            loadtable();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Scientist NotSaved", ButtonType.OK).show();
-        }
+    if (issave) {
+        new Alert(Alert.AlertType.INFORMATION, "Scientist Saved", ButtonType.OK).show();
+        loadtable();
+    } else {
+        new Alert(Alert.AlertType.ERROR, "Scientist NotSaved", ButtonType.OK).show();
+    }
+}
 
     }
 
     public void btnResetOnAction (ActionEvent actionEvent){
+        clear();
+    }
+    private void clear() {
+        txtScientistName.setText("");
+        txtContact.setText("");
     }
 
     public void btnUpdateOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
@@ -158,6 +169,21 @@ public class ScientistPageController{
 
 
     public void btnGenarateROnAction (ActionEvent actionEvent){
+    }
+    private boolean isValied() {
+    if (!Regex.setTextColor(lk.ijse.sciencelab.util.TextField.NAME,txtScientistName)) return false;
+    if (!Regex.setTextColor(lk.ijse.sciencelab.util.TextField.CONTACT,txtContact)) return false;
+    return true;
+    }
+
+    @FXML
+    void txtScientistContactKeyRelease(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.sciencelab.util.TextField.CONTACT,txtContact);
+    }
+
+    @FXML
+    void txtScientistNameKeyRelease(KeyEvent event) {
+        Regex.setTextColor(lk.ijse.sciencelab.util.TextField.NAME,txtScientistName);
     }
 
 }

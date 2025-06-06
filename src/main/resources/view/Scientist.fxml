@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="669.0" style="-fx-background-color: #27ae60;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sciencelab.Controller.ScientistPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="669.0" style="-fx-background-color: #27ae60;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.sciencelab.Controller.ScientistPageController">
     <children>
         <AnchorPane prefHeight="427.0" prefWidth="669.0" style="-fx-background-color: #067e7f;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -54,7 +54,7 @@
                                                 <Font name="System Bold" size="14.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="txtScientistName" prefHeight="27.0" prefWidth="535.0" promptText="Scientist" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
+                                        <TextField fx:id="txtScientistName" onKeyReleased="#txtScientistNameKeyRelease" prefHeight="27.0" prefWidth="535.0" promptText="Scientist" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
                                             <HBox.margin>
                                                 <Insets right="10.0" top="5.0" />
                                             </HBox.margin>
@@ -72,7 +72,7 @@
                                             <font>
                                                 <Font name="System Bold" size="14.0" />
                                             </font></Label>
-                                        <TextField fx:id="txtContact" prefHeight="25.0" prefWidth="535.0" promptText="0000000000" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
+                                        <TextField fx:id="txtContact" onKeyReleased="#txtScientistContactKeyRelease" prefHeight="25.0" prefWidth="535.0" promptText="0000000000" style="-fx-background-color: #fff; -fx-border-color: #000; -fx-border-width: 0 0 1px 0;">
                                             <HBox.margin>
                                                 <Insets right="10.0" top="5.0" />
                                             </HBox.margin>
