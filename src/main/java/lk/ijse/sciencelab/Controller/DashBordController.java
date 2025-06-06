@@ -10,6 +10,12 @@ import javafx.scene.layout.AnchorPane;
 
 public class DashBordController {
 
+    public Label labelTotalEmployees;
+    public Label labelWorkersCount;
+    public Label labelTotalEquipments;
+    public Label labelSuppliersCount;
+    public Label labelTotalChemicals;
+    public Label labelTotalProjects;
     @FXML
     private AnchorPane ancDash;
 
