@@ -35,10 +35,12 @@ public class FunderPageController {
     public Label lblFunderID;
     public Button btnUpdate;
     public ComboBox<String> ComboBoxProject;
+    public ComboBox ComboBoxOrganization;
 
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         setnextID();
+        ComboBoxOrganization.setItems(FXCollections.observableArrayList("University of Colombo – Science Faculty Labs", "University of Moratuwa – Engineering & Tech labs", " Medical Research Institute (MRI)", " NASA (USA) – Space & aerospace research labs", " Mayo Clinic Labs (USA)", " Hemas Pharmaceuticals Lab", " Central Environmental Authority (CEA) Labs", " Allen Institute for Brain Science (USA)"));
         ComboBoxProject.setItems(Fmodel.getAllProjectID());
         loadtable();
     }

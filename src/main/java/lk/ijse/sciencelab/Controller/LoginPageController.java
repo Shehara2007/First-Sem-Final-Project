@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 import lk.ijse.sciencelab.User;
 
 import javax.mail.*;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.IOException;
@@ -25,7 +24,7 @@ public class LoginPageController {
     public Button btnLogin1;
     public AnchorPane ancLogin;
     public PasswordField txtEmailAddress;
-    private User user = new User("1", "1");
+    private User user = new User("shehara", "0708");
 
     public void loginOnAction(ActionEvent actionEvent) {
 //        String email = txtEmailAddress.getText();

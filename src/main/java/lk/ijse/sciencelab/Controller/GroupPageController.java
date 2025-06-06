@@ -38,7 +38,6 @@ public class GroupPageController{
     public ComboBox <String> ComboBoxScientist;
 
 
-
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         setnextID();

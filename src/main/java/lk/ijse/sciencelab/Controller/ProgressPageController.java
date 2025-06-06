@@ -12,7 +12,6 @@ import javafx.scene.input.MouseEvent;
 import lk.ijse.sciencelab.Dto.ProgressDto;
 import lk.ijse.sciencelab.model.Progressmodel;
 import lk.ijse.sciencelab.model.Projectmodel;
-import lk.ijse.sciencelab.util.Regex;
 
 import java.sql.SQLException;
 import java.time.LocalDate;

@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import lk.ijse.sciencelab.Dto.EmployeeDto;
 import lk.ijse.sciencelab.model.Employeemodel;
+import lk.ijse.sciencelab.model.Groupmodel;
 import lk.ijse.sciencelab.util.Regex;
 
 import java.io.IOException;
@@ -41,12 +42,14 @@ public class EmployeePageController {
     public TextField txtEmployeeName;
     public Label lblEmployeeID;
     public ComboBox ComboBoxGroupID;
+    public ComboBox ComboBoxRole;
 
 
     public void initialize() throws SQLException, ClassNotFoundException {
         setcellvaluefactory();
         setnextID();
-      //  ComboBoxGroupID.setItems(Emodel.);
+        ComboBoxRole.setItems(FXCollections.observableArrayList("Technician", " Lab Assistant", "Scientist", " Lab Manager", " Safety Officer", "Data Analyst / Bioinformatician", " Scientific Project Manager", " Histology Technician", " Lab IT Specialist", "Robotics Technician"));
+        ComboBoxGroupID.setItems(Groupmodel.getAllGroupID());
         loadtable();
     }
 
@@ -75,22 +78,6 @@ public class EmployeePageController {
         tblEmployee.setItems(employeeObservableList);
     }
 
-    public void clickOnAction (MouseEvent mouseEvent){
-        EmployeeDto selectedItem = (EmployeeDto) tblEmployee.getSelectionModel().getSelectedItem();
-
-        if (selectedItem != null) {
-            lblEmployeeID.setText(selectedItem.getEmployeeId());
-            txtRole.setText(selectedItem.getRole());
-            txtEmployeeName.setText(String.valueOf(selectedItem.getEmployeeName()));
-            txtContact.setText(selectedItem.getContact());
-            ComboBoxGroupID.setValue(selectedItem.getGroupId());
-            // save button disable
-            btnSave.setDisable(true);
-            // update, delete button enable
-            btnUpdate.setDisable(false);
-            btnDelete.setDisable(false);
-        }
-    }
     public void btnSaveOnAction (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
   if (isValied()){
       String employeeID = lblEmployeeID.getText();
@@ -160,6 +147,20 @@ public class EmployeePageController {
     }
 
     public void tableClickOnAction(MouseEvent mouseEvent) {
+        EmployeeDto selectedItem = (EmployeeDto) tblEmployee.getSelectionModel().getSelectedItem();
+
+        if (selectedItem != null) {
+            lblEmployeeID.setText(selectedItem.getEmployeeId());
+            txtRole.setText(selectedItem.getRole());
+            txtEmployeeName.setText(String.valueOf(selectedItem.getEmployeeName()));
+            txtContact.setText(selectedItem.getContact());
+            ComboBoxGroupID.setValue(selectedItem.getGroupId());
+            // save button disable
+            btnSave.setDisable(true);
+            // update, delete button enableF
+            btnUpdate.setDisable(false);
+            btnDelete.setDisable(false);
+        }
     }
 
     public void btnEmailFrom(ActionEvent event) {

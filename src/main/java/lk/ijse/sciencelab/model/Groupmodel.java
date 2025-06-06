@@ -24,6 +24,15 @@ public class Groupmodel {
         return tableCharactor + "001";
     }
 
+    public static ObservableList getAllGroupID() throws SQLException, ClassNotFoundException {
+        ResultSet rs = CrudUtil.execute("select group_Id from research_group");
+        ObservableList<String> GroupDtoDtoArrayList = FXCollections.observableArrayList();
+        while (rs.next()) {
+            GroupDtoDtoArrayList.add(rs.getString("group_Id"));
+        }
+        return GroupDtoDtoArrayList;
+    }
+
     public boolean save(GroupDto group) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("insert into research_group values (?,?,?,?,?,?)", group.getGroupId(), group.getGroupName(), group.getProgress(), group.getMember(), group.getResearchProgress(), group.getScientistId());
     }
